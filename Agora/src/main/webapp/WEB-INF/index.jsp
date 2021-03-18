@@ -10,6 +10,7 @@
 <body>
 
 <h1>Welcome to Agora</h1>
+${TEST}
 
 </body>
 </html>
