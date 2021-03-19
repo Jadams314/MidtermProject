@@ -10,9 +10,9 @@
 
 <!-- entities  -->
 
-<class>com.skilldistillery.agora.entities.User</class>
 <class>com.skilldistillery.agora.entities.Category</class>
 <class>com.skilldistillery.agora.entities.Product</class>
+<class>com.skilldistillery.agora.entities.User</class>
 
 <!-- entities  -->
 
