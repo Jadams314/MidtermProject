@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "shoping_cart")
+@Table(name = "shopping_cart")
 public class ShoppingCart {
 
 	@Id
