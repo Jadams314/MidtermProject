@@ -3,6 +3,8 @@ package com.skilldistillery.agora.entities;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -52,6 +54,9 @@ class ProductTest {
 		assertEquals("Mask product", product.getName());
 		assertEquals("Face mask in Product", product.getDescription());
 		assertEquals(5.0, product.getPrice());
+		LocalDateTime createDate = product.getCreationDate();
+		assertEquals(2020, createDate.getYear());
+		assertEquals(03, createDate.getMonthValue());
 	}
 
 }
