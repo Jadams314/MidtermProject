@@ -58,5 +58,11 @@ class ProductTest {
 		assertEquals(2020, createDate.getYear());
 		assertEquals(03, createDate.getMonthValue());
 	}
-
+	
+	@Test
+	@DisplayName("Test Product entity mapping to User")
+	void test2() {
+		assertNotNull(product);
+		assertEquals(1, product.getSeller().getId());
+	}
 }

@@ -46,7 +46,7 @@ class UserTest {
 	}
 
 	@Test
-	@DisplayName("Test user entity mapping")
+	@DisplayName("Test User entity mapping")
 	void test1() {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
@@ -61,4 +61,11 @@ class UserTest {
 		
 	}
 
+	@Test
+	@DisplayName("Test User entity mapping to Product")
+	void test2() {
+		assertNotNull(user);
+		assertEquals("Mask product", user.getProducts().get(0).getName());
+		assertTrue(user.getProducts().size() > 0);
+	}
 }

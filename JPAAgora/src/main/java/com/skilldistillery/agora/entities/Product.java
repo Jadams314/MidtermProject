@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Product {
@@ -27,7 +29,19 @@ public class Product {
 	@Column(name = "product_img_url")
 	private String productImgUrl;
 
+	@ManyToOne
+	@JoinColumn(name = "seller_id")
+	private User seller;
+
 	public Product() {
+	}
+
+	public User getSeller() {
+		return seller;
+	}
+
+	public void setSeller(User seller) {
+		this.seller = seller;
 	}
 
 	public int getId() {
