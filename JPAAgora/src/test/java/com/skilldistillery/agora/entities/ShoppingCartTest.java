@@ -55,4 +55,13 @@ class ShoppingCartTest {
 		
 	}
 
+	@Test
+	@DisplayName("Test Shopping Cart ManyToOne Mappings with Purchase")
+	void test2() {
+		assertNotNull(shoppingCart);
+		assertEquals(3, shoppingCart.getPurchase().getRating());
+		assertEquals(1, shoppingCart.getPurchase().getInventoryId());
+		
+	}
+
 }

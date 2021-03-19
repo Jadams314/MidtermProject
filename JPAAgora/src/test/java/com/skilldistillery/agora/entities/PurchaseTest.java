@@ -52,4 +52,13 @@ class PurchaseTest {
 		assertEquals(3, purchase.getPurchaseDate().getMonthValue());
 		assertEquals(18, purchase.getPurchaseDate().getDayOfMonth());
 	}
+
+	@Test
+	@DisplayName("Testing OneToMany Mapping with ShoppigCart")
+	void test2() {
+		assertNotNull(purchase);
+		assertTrue(purchase.getShoppingCart().size() > 0);
+		assertEquals(false, purchase.getShoppingCart().get(0).isPurchased());
+		assertEquals(2, purchase.getShoppingCart().get(0).getPurchase().getId());
+	}
 }

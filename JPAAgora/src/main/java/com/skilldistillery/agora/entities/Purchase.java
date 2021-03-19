@@ -1,12 +1,15 @@
 package com.skilldistillery.agora.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Purchase {
@@ -28,10 +31,23 @@ public class Purchase {
 	@Column(name="purchase_date")
 	private LocalDateTime purchaseDate;
 	
+	@OneToMany(mappedBy="purchase")
+	@Column(name="shopping_cart")
+	private List<ShoppingCart> shoppingCart;
+	//TODO: Add and remove methods?
+	
 	//Constructors
 	public Purchase() {}
 
 	//Methods
+	public List<ShoppingCart> getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(List<ShoppingCart> shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
+	
 	public int getId() {
 		return id;
 	}
