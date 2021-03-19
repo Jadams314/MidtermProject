@@ -1,6 +1,7 @@
 package com.skilldistillery.agora.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -15,12 +16,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class ShoppingCartTest {
 
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private ShoppingCart shoppingCart;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -35,28 +36,21 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1 );
+		shoppingCart = em.find(ShoppingCart.class, 1 );
 				
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		shoppingCart = null;
 	}
 
 	@Test
-	@DisplayName("Test user entity mapping")
+	@DisplayName("Test Shopping Cart entity mapping")
 	void test1() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-		assertEquals("admin", user.getPassword());
-		assertTrue(user.isEnabled());
-		assertEquals("admin", user.getRole());
-		assertEquals("adminemail@email.com", user.getEmail());
-		assertEquals("Bob", user.getFirstName());
-		assertEquals("Dole", user.getLastName());
-		assertEquals(1, user.getAddressId());
+		assertNotNull(shoppingCart);
+		assertFalse(shoppingCart.isPurchased());
 		
 		
 	}

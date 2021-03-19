@@ -12,10 +12,10 @@
 
 <class>com.skilldistillery.agora.entities.Category</class>
 <class>com.skilldistillery.agora.entities.Product</class>
+<class>com.skilldistillery.agora.entities.ShoppingCart</class>
 <class>com.skilldistillery.agora.entities.User</class>
 
 <!-- entities  -->
-
 
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/agoradb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Central" />
