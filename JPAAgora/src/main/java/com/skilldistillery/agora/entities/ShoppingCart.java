@@ -10,54 +10,71 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="product_comment")
-public class ProductComment {
+@Table(name = "shopping_cart")
+public class ShoppingCart {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String content;
+	@Column(name = "is_purchased")
+	private boolean isPurchased;
 	
-	@Column(name="create_date")
+	@Column(name = "create_date")
 	private LocalDateTime createDate;
+	
+	@Column(name = "checkout_date")
+	private LocalDateTime checkoutDate;
 
-	//has product_id foreign key
 	
-	//has user_id foreign key
+	/*
+	 * ***** METHODS ******
+	 */
+	
+	public ShoppingCart() {
+		super();
+	}
 
-	
-	
-/*
- * ***** METHODS ******
- */	
-	
-	public ProductComment() {}
-	
-	
+
 	public int getId() {
 		return id;
 	}
+
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getContent() {
-		return content;
+
+	public boolean isPurchased() {
+		return isPurchased;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+
+	public void setPurchased(boolean isPurchased) {
+		this.isPurchased = isPurchased;
 	}
+
 
 	public LocalDateTime getCreateDate() {
 		return createDate;
 	}
 
+
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
+
+
+	public LocalDateTime getCheckoutDate() {
+		return checkoutDate;
+	}
+
+
+	public void setCheckoutDate(LocalDateTime checkoutDate) {
+		this.checkoutDate = checkoutDate;
+	}
+
 
 	@Override
 	public int hashCode() {
@@ -67,6 +84,7 @@ public class ProductComment {
 		return result;
 	}
 
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -75,22 +93,18 @@ public class ProductComment {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ProductComment other = (ProductComment) obj;
+		ShoppingCart other = (ShoppingCart) obj;
 		if (id != other.id)
 			return false;
 		return true;
 	}
 
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("ProductComment id=");
-		builder.append(id);
-		builder.append(", content=");
-		builder.append(content);
-		builder.append(", createDate=");
-		builder.append(createDate);
-		builder.append(".");
+		builder.append("ShoppingCart [id=").append(id).append(", isPurchased=").append(isPurchased)
+				.append(", createDate=").append(createDate).append(", checkoutDate=").append(checkoutDate).append("]");
 		return builder.toString();
 	}
 	

@@ -26,6 +26,11 @@ public class Inventory {
 
 	// DB has product_id as foreign key
 
+	
+/*
+ * ***** METHODS ******
+ */
+	
 	public Inventory() {
 	}
 
