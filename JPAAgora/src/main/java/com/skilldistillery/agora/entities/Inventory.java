@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Inventory {
@@ -24,14 +26,25 @@ public class Inventory {
 	@Column(name = "is_available")
 	private boolean isAvailable;
 
+	@ManyToOne
+	@JoinColumn(name = "product_id")
+	private Product product;
+
 	// DB has product_id as foreign key
 
-	
-/*
- * ***** METHODS ******
- */
-	
+	/*
+	 * ***** METHODS ******
+	 */
+
 	public Inventory() {
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public int getId() {
