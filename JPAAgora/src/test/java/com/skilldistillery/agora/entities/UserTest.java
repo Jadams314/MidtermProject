@@ -2,6 +2,7 @@ package com.skilldistillery.agora.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -49,6 +50,15 @@ class UserTest {
 	void test1() {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
+		assertEquals("admin", user.getPassword());
+		assertTrue(user.isEnabled());
+		assertEquals("admin", user.getRole());
+		assertEquals("adminemail@email.com", user.getEmail());
+		assertEquals("Bob", user.getFirstName());
+		assertEquals("Dole", user.getLastName());
+		assertEquals(1, user.getAddressId());
+		
+		
 	}
 
 }
