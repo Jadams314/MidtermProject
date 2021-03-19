@@ -2,7 +2,6 @@ package com.skilldistillery.agora.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,13 +14,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class InventoryTest {
 
-	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	Inventory item;
 
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("Agora");
@@ -35,29 +34,22 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1 );
-				
+		item = em.find(Inventory.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		item = null;
 	}
 
+
 	@Test
-	@DisplayName("Test user entity mapping")
+	@DisplayName("Testing inventory entity")
 	void test1() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-		assertEquals("admin", user.getPassword());
-		assertTrue(user.isEnabled());
-		assertEquals("admin", user.getRole());
-		assertEquals("adminemail@email.com", user.getEmail());
-		assertEquals("Bob", user.getFirstName());
-		assertEquals("Dole", user.getLastName());
-		assertEquals(1, user.getAddressId());
-		
+		assertNotNull(item);
+		assertEquals(3.99, item.getPrice());
+		assertEquals("Mask Inventory", item.getName());
 		
 	}
 

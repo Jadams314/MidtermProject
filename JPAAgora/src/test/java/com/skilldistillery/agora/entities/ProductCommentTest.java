@@ -1,8 +1,6 @@
 package com.skilldistillery.agora.entities;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,13 +13,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class ProductCommentTest {
 
-	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	ProductComment comment;
 
+	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("Agora");
@@ -35,29 +33,22 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1 );
-				
+		comment = em.find(ProductComment.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		user = null;
+		comment = null;
 	}
 
+
 	@Test
-	@DisplayName("Test user entity mapping")
+	@DisplayName("Testing ProductComment entity")
 	void test1() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-		assertEquals("admin", user.getPassword());
-		assertTrue(user.isEnabled());
-		assertEquals("admin", user.getRole());
-		assertEquals("adminemail@email.com", user.getEmail());
-		assertEquals("Bob", user.getFirstName());
-		assertEquals("Dole", user.getLastName());
-		assertEquals(1, user.getAddressId());
-		
+		assertNotNull(comment);
+		assertNotNull(comment.getContent());
+		assertEquals(2020, comment.getCreateDate().getYear());
 		
 	}
 
