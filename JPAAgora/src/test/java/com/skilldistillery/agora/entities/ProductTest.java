@@ -76,7 +76,7 @@ class ProductTest {
 	}
 
 	@Test
-	@DisplayName("Test Product ManyToOne Mappings to Category")
+	@DisplayName("Test Product ManyToMany Mappings to Category")
 	void test4() {
 		assertNotNull(product);
 		assertTrue(product.getCategories().size()>0);
