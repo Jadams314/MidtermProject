@@ -53,4 +53,12 @@ class InventoryTest {
 		
 	}
 
+	@Test
+	@DisplayName("Testing inventory entity mapped to product")
+	void test2() {
+		assertNotNull(item);
+		assertEquals("Mask product", item.getProduct().getName());
+		assertEquals(1, item.getProduct().getId());
+		assertEquals(5,item.getProduct().getPrice());
+	}
 }

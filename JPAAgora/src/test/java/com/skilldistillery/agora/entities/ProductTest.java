@@ -2,6 +2,7 @@ package com.skilldistillery.agora.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDateTime;
 
@@ -58,5 +59,19 @@ class ProductTest {
 		assertEquals(2020, createDate.getYear());
 		assertEquals(03, createDate.getMonthValue());
 	}
-
+	
+	@Test
+	@DisplayName("Test Product entity mapping to User")
+	void test2() {
+		assertNotNull(product);
+		assertEquals(1, product.getSeller().getId());
+	}
+	@Test
+	@DisplayName("Test Product entity mapping to inventory")
+	void test3() {
+		assertNotNull(product);
+		assertTrue(product.getInventory().size() > 0);
+		assertEquals(1, product.getInventory().get(0).getId());
+		assertEquals("Mask Inventory", product.getInventory().get(0).getName());
+	}
 }
