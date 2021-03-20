@@ -1,6 +1,7 @@
 package com.skilldistillery.agora.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -22,6 +23,7 @@ class UserTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private User user;
+	private User user2;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -37,6 +39,7 @@ class UserTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 		user = em.find(User.class, 2 );
+		user2 = em.find(User.class, 1);
 				
 	}
 
@@ -44,8 +47,9 @@ class UserTest {
 	void tearDown() throws Exception {
 		em.close();
 		user = null;
+		user2 = null;
 	}
-	@Disabled
+
 	@Test
 	@DisplayName("Test User entity mapping")
 	void test1() {
@@ -54,13 +58,10 @@ class UserTest {
 		assertEquals("testuser", user.getPassword());
 		assertTrue(user.isEnabled());
 		assertEquals("admin", user.getRole());
-		assertEquals("adminemail@email.com", user.getEmail());
-		assertEquals("Bob", user.getFirstName());
-		assertEquals("Dole", user.getLastName());
 		assertEquals("test@email.com", user.getEmail());
 		assertEquals("tes1", user.getFirstName());
 		assertEquals("test2", user.getLastName());
-
+		assertEquals(2, user.getAddressId());
 		
 		
 	}
@@ -83,14 +84,23 @@ class UserTest {
 		assertTrue(user.getProducts().size() > 0);
 	}
 	
+	
 	@Test
 	@DisplayName("Testing User OneToMany product comment mapping")
 	void test4() {
+		assertNotNull(user2);
+		assertNotNull(user2.getProductComment());
+		assertEquals("A comment",user2.getProductComment().get(0).getContent());
+
+	}
+	
+	@Test
+	@DisplayName("Testing user OneToMany shopping cart mapping")
+	void test5() {
 		assertNotNull(user);
-		assertNotNull(user.getComment());
-		//TODO: //this throw IndexoutOfBounds
-		//assertEquals("A comment",user.getComment().get(0).getContent());
-		//assertEquals(2020,user.getComment().get(0).getCreateDate().getYear());
+		assertNotNull(user.getShoppingCart());
+		assertEquals(2020, user.getShoppingCart().get(0).getCreateDate().getYear());
+		assertFalse(user.getShoppingCart().get(0).isPurchased());
 	}
 	
 }

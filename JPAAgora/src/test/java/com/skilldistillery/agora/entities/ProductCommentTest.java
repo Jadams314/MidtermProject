@@ -58,9 +58,9 @@ class ProductCommentTest {
 	void test2() {
 		assertNotNull(comment);
 		assertNotNull(comment.getUser());
-		assertEquals("admin",comment.getUser().getPassword());
-		assertEquals("Bob", comment.getUser().getFirstName());
-		
+		assertEquals("Bob" ,comment.getUser().getFirstName());
+		assertEquals("admin" ,comment.getUser().getUsername());
+			
 	}
 	
 }
