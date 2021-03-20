@@ -21,6 +21,7 @@ class InventoryTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	Inventory item;
+	Inventory item2;
 
 	
 	@BeforeAll
@@ -37,12 +38,14 @@ class InventoryTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 		item = em.find(Inventory.class, 1);
+		item2 = em.find(Inventory.class, 2);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
 		item = null;
+		item2 = null;
 	}
 
 
@@ -64,9 +67,18 @@ class InventoryTest {
 		assertEquals(5,item.getProduct().getPrice());
 	}
 
+	
+	@Test
+	@DisplayName("Testing inventory to purchase mapping")
+	void test3() {
+		assertNotNull(item2);
+		assertNotNull(item2.getPurchase());
+		assertEquals(4 ,item2.getPurchase().get(0).getRating());
+	}
+
 	@Test
 	@DisplayName("Testing inventory ManyToOne Mappings with ShoppingCart")
-	void test3() {
+	void test4() {
 		assertNotNull(item);
 		assertTrue(item.getShoppingCarts().size()>0);
 		assertFalse(item.getShoppingCarts().get(0).isPurchased());

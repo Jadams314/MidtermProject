@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Inventory {
@@ -34,13 +35,15 @@ public class Inventory {
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;
-	// DB has product_id as foreign key
+	
+	@OneToMany(mappedBy="inventory")
+	private List<Purchase> purchase;
 	
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(name="inventory_to_shopping_cart", 
 	joinColumns=@JoinColumn(name="inventory_id"),
 	inverseJoinColumns=@JoinColumn(name="shopping_cart_id"))
-	private List<ShoppingCart> shoppingCarts;	
+	private List<ShoppingCart> shoppingCarts;
 
 	/*
 	 * ***** METHODS ******
@@ -49,12 +52,21 @@ public class Inventory {
 	public Inventory() {
 	}
 
+
+	public List<Purchase> getPurchase() {
+		return purchase;
+	}
+
+	public void setPurchase(List<Purchase> purchase) {
+		this.purchase = purchase;
+	}
+		
 	public List<ShoppingCart> getShoppingCarts() {
 		return shoppingCarts;
 	}
 
 	public void setShoppingCarts(List<ShoppingCart> shoppingCarts) {
-		this.shoppingCarts = shoppingCarts;
+		this.shoppingCarts = shoppingCarts;	
 	}
 
 	public Product getProduct() {
