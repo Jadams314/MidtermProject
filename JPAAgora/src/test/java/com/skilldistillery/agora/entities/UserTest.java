@@ -53,10 +53,15 @@ class UserTest {
 		assertEquals("testuser", user.getPassword());
 		assertTrue(user.isEnabled());
 		assertEquals("admin", user.getRole());
+
+		assertEquals("adminemail@email.com", user.getEmail());
+		assertEquals("Bob", user.getFirstName());
+		assertEquals("Dole", user.getLastName());
+
 		assertEquals("test@email.com", user.getEmail());
 		assertEquals("tes1", user.getFirstName());
 		assertEquals("test2", user.getLastName());
-		assertEquals(2, user.getAddressId());
+
 		
 		
 	}
