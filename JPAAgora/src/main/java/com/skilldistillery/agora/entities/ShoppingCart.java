@@ -1,6 +1,7 @@
 package com.skilldistillery.agora.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -31,6 +33,9 @@ public class ShoppingCart {
 	@ManyToOne
 	@JoinColumn(name = "purchase_id")
 	private Purchase purchase;
+	
+	@ManyToMany(mappedBy="shoppingCarts")
+	private List<Inventory> inventories;	
 
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -43,8 +48,16 @@ public class ShoppingCart {
 	
 	/*
 	 * ***** METHODS ******
-	 */
-	
+	 */	
+
+
+	public List<Inventory> getInventories() {
+		return inventories;
+	}
+
+	public void setInventories(List<Inventory> inventories) {
+		this.inventories = inventories;
+	}
 	
 	public User getUser() {
 		return user;
@@ -57,7 +70,6 @@ public class ShoppingCart {
 	public int getId() {
 		return id;
 	}
-
 
 	public Purchase getPurchase() {
 		return purchase;

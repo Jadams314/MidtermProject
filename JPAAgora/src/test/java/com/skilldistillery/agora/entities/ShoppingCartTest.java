@@ -64,4 +64,12 @@ class ShoppingCartTest {
 		
 	}
 
+	@Test
+	@DisplayName("Test Shopping Cart ManyToMany Mappings with Inventory")
+	void test3() {
+		assertNotNull(shoppingCart);
+		assertTrue(shoppingCart.getInventories().size()>0);
+		assertTrue(shoppingCart.getInventories().get(0).isAvailable());
+	}
+
 }

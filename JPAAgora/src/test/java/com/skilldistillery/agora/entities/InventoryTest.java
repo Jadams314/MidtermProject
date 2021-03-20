@@ -1,7 +1,9 @@
 package com.skilldistillery.agora.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -60,5 +62,14 @@ class InventoryTest {
 		assertEquals("Mask product", item.getProduct().getName());
 		assertEquals(1, item.getProduct().getId());
 		assertEquals(5,item.getProduct().getPrice());
+	}
+
+	@Test
+	@DisplayName("Testing inventory ManyToOne Mappings with ShoppingCart")
+	void test3() {
+		assertNotNull(item);
+		assertTrue(item.getShoppingCarts().size()>0);
+		assertFalse(item.getShoppingCarts().get(0).isPurchased());
+		
 	}
 }

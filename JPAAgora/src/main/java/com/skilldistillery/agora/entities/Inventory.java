@@ -1,11 +1,16 @@
 package com.skilldistillery.agora.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -29,14 +34,27 @@ public class Inventory {
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;
-
 	// DB has product_id as foreign key
+	
+	@ManyToMany(cascade = CascadeType.PERSIST)
+	@JoinTable(name="inventory_to_shopping_cart", 
+	joinColumns=@JoinColumn(name="inventory_id"),
+	inverseJoinColumns=@JoinColumn(name="shopping_cart_id"))
+	private List<ShoppingCart> shoppingCarts;	
 
 	/*
 	 * ***** METHODS ******
-	 */
+	 */	
 
 	public Inventory() {
+	}
+
+	public List<ShoppingCart> getShoppingCarts() {
+		return shoppingCarts;
+	}
+
+	public void setShoppingCarts(List<ShoppingCart> shoppingCarts) {
+		this.shoppingCarts = shoppingCarts;
 	}
 
 	public Product getProduct() {
