@@ -68,4 +68,13 @@ class UserTest {
 		assertEquals("Mask product", user.getProducts().get(0).getName());
 		assertTrue(user.getProducts().size() > 0);
 	}
+	
+	@Test
+	@DisplayName("Testing User OneToMany product comment manpping")
+	void test3() {
+		assertNotNull(user);
+		assertNotNull(user.getComment());
+		assertEquals("A comment",user.getComment().get(0).getContent());
+		assertEquals(2020,user.getComment().get(0).getCreateDate().getYear());
+	}
 }
