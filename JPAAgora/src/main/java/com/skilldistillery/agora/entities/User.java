@@ -41,16 +41,39 @@ public class User {
 	@OneToMany(mappedBy = "seller")
 	private List<Product> products;
 	
-	@OneToMany(mappedBy = "user")
-	private List<ProductComment> comment;
+	//**************
 	
+	@OneToMany(mappedBy = "user")
+	private List<ProductComment> productComment;
+	
+	//**************
+
 	@OneToMany(mappedBy="buyer")
 	private List<Purchase> purchases;
+	
+	@OneToMany(mappedBy="user")
+	private List<ShoppingCart> shoppingCart;
 
 	/*
 		***** METHODS *****
 	*/
 	public User() {}	
+
+	public List<ProductComment> getProductComment() {
+		return productComment;
+	}
+
+	public void setProductComment(List<ProductComment> productComment) {
+		this.productComment = productComment;
+	}
+
+	public List<ShoppingCart> getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(List<ShoppingCart> shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
 
 	public List<Purchase> getPurchases() {
 		return purchases;
@@ -60,13 +83,7 @@ public class User {
 		this.purchases = purchases;
 	}
 
-	public List<ProductComment> getComment() {
-		return comment;
-	}
 
-	public void setComment(List<ProductComment> comment) {
-		this.comment = comment;
-	}
 
 	public List<Product> getProducts() {
 		return products;

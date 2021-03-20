@@ -32,6 +32,9 @@ public class ShoppingCart {
 	@JoinColumn(name = "purchase_id")
 	private Purchase purchase;
 
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	//Constructors
 	public ShoppingCart() {
@@ -43,6 +46,14 @@ public class ShoppingCart {
 	 */
 	
 	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public int getId() {
 		return id;
 	}
