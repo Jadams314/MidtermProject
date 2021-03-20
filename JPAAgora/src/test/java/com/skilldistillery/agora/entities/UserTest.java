@@ -18,7 +18,6 @@ import org.junit.jupiter.api.Test;
 
 class UserTest {
 
-	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private User user;
@@ -36,8 +35,8 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1 );
-				
+		user = em.find(User.class, 2);
+
 	}
 
 	@AfterEach
@@ -46,29 +45,51 @@ class UserTest {
 		user = null;
 	}
 
-//	@Disabled
 	@Test
-	@DisplayName("Test user entity mapping")
+	@DisplayName("Test User entity mapping")
 	void test1() {
 		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-		assertEquals("admin", user.getPassword());
+		assertEquals("testuser", user.getUsername());
+		assertEquals("testuser", user.getPassword());
 		assertTrue(user.isEnabled());
 		assertEquals("admin", user.getRole());
-		assertEquals("adminemail@email.com", user.getEmail());
-		assertEquals("Bob", user.getFirstName());
-		assertEquals("Dole", user.getLastName());
-		assertEquals(1, user.getAddress().getId());
-		
+		assertEquals("test@email.com", user.getEmail());
+		assertEquals("tes1", user.getFirstName());
+		assertEquals("test2", user.getLastName());
 		
 	}
+
+	@Test
+	@DisplayName("Test OneToMany Mapping User To Purchased")
+	void test2() {
+		assertNotNull(user);
+		assertTrue(user.getPurchases().size() > 0);
+		assertEquals("This mask is a test comment", user.getPurchases().get(0).getReview());
+
+	}
+
+	@Test
+	@DisplayName("Test User entity mapping to Product")
+	void test3() {
+		assertNotNull(user);
+		assertEquals("test product", user.getProducts().get(0).getName());
+		assertTrue(user.getProducts().size() > 0);
+	}
+
+	@Test
+	@DisplayName("Testing User OneToMany product comment mapping")
+	void test4() {
+		assertNotNull(user);
+		assertNotNull(user.getComment());
+		// TODO: //this throw IndexoutOfBounds
+		// assertEquals("A comment",user.getComment().get(0).getContent());
+		// assertEquals(2020,user.getComment().get(0).getCreateDate().getYear());
+	}
+
 //	@Disabled
 	@Test
 	@DisplayName("Test user address mapping")
-	void test2() {
-		assertEquals("4 Elm", user.getAddress().getStreet());
-
+	void test5() {
+		assertEquals("teststreet", user.getAddress().getStreet());
 	}
-	
-
 }

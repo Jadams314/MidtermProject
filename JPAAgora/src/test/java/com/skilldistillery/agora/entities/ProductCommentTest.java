@@ -1,6 +1,7 @@
 package com.skilldistillery.agora.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -52,4 +53,14 @@ class ProductCommentTest {
 		
 	}
 
+	@Test
+	@DisplayName("Testing comment ManyToOne User mapping")
+	void test2() {
+		assertNotNull(comment);
+		assertNotNull(comment.getUser());
+		assertEquals("admin",comment.getUser().getPassword());
+		assertEquals("Bob", comment.getUser().getFirstName());
+		
+	}
+	
 }
