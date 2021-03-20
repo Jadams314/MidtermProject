@@ -53,7 +53,7 @@ class AddressTest {
 	@DisplayName("Testing Address user mapping")
 	void test2() {
 		assertEquals(1, address.getUser().getId());
-		
+
 	}
 	
 	

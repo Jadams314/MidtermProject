@@ -3,6 +3,7 @@ package com.skilldistillery.agora.entities;
 import javax.persistence.CascadeType;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -37,7 +39,7 @@ public class User {
 
 	@Column(name = "profile_img_url")
 	private String profileImgUrl;
-	
+
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "address_id")
 	private Address address;
@@ -46,15 +48,34 @@ public class User {
 	private List<Product> products;
 	
 	@OneToMany(mappedBy = "user")
-	private List<ProductComment> comment;
+	private List<ProductComment> productComment;
 	
 	@OneToMany(mappedBy="buyer")
 	private List<Purchase> purchases;
+	
+	@OneToMany(mappedBy="user")
+	private List<ShoppingCart> shoppingCart;
 
 	/*
 		***** METHODS *****
 	*/
 	public User() {}	
+
+	public List<ProductComment> getProductComment() {
+		return productComment;
+	}
+
+	public void setProductComment(List<ProductComment> productComment) {
+		this.productComment = productComment;
+	}
+
+	public List<ShoppingCart> getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(List<ShoppingCart> shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
 
 	public List<Purchase> getPurchases() {
 		return purchases;
@@ -64,13 +85,7 @@ public class User {
 		this.purchases = purchases;
 	}
 
-	public List<ProductComment> getComment() {
-		return comment;
-	}
 
-	public void setComment(List<ProductComment> comment) {
-		this.comment = comment;
-	}
 
 	public List<Product> getProducts() {
 		return products;

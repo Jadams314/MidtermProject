@@ -29,6 +29,14 @@ public class Address {
 	//Constructors
 	public Address() {}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	//Methods
 	public int getId() {
 		return id;
@@ -92,13 +100,6 @@ public class Address {
 		return true;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	@Override
 	public String toString() {
