@@ -60,4 +60,12 @@ class PurchaseTest {
 		assertEquals("test@email.com", purchase.getBuyer().getEmail());
 		assertEquals("testuser", purchase.getBuyer().getUsername());
 	}
+
+	@DisplayName("Testing OneToMany Mapping with ShoppigCart")
+	void test3() {
+		assertNotNull(purchase);
+		assertTrue(purchase.getShoppingCart().size() > 0);
+		assertEquals(false, purchase.getShoppingCart().get(0).isPurchased());
+		assertEquals(2, purchase.getShoppingCart().get(0).getPurchase().getId());
+	}
 }

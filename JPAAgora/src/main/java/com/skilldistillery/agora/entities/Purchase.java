@@ -1,6 +1,7 @@
 package com.skilldistillery.agora.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Purchase {
@@ -31,6 +33,11 @@ public class Purchase {
 	@JoinColumn(name="buyer_id")
 	private User buyer;
 	
+	@OneToMany(mappedBy="purchase")
+	@Column(name="shopping_cart")
+	private List<ShoppingCart> shoppingCart;
+	//TODO: Add and remove methods?
+	
 	//Constructors
 	public Purchase() {}
 
@@ -43,6 +50,14 @@ public class Purchase {
 		this.buyer = buyer;
 	}
 
+	public List<ShoppingCart> getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(List<ShoppingCart> shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
+	
 	public int getId() {
 		return id;
 	}

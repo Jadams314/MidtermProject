@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,9 +24,16 @@ public class ProductComment {
 	@Column(name="create_date")
 	private LocalDateTime createDate;
 
-	//has product_id foreign key
 	
 	//has user_id foreign key
+
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
+	
+	//has product_id foreign key
+	
 
 	
 	
@@ -35,6 +44,16 @@ public class ProductComment {
 	public ProductComment() {}
 	
 	
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
 	public int getId() {
 		return id;
 	}

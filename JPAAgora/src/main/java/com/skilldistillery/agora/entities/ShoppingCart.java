@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,21 +27,34 @@ public class ShoppingCart {
 	
 	@Column(name = "checkout_date")
 	private LocalDateTime checkoutDate;
+	
+	@ManyToOne
+	@JoinColumn(name = "purchase_id")
+	private Purchase purchase;
 
+	
+	//Constructors
+	public ShoppingCart() {
+		super();
+	}
 	
 	/*
 	 * ***** METHODS ******
 	 */
 	
-	public ShoppingCart() {
-		super();
-	}
-
-
+	
 	public int getId() {
 		return id;
 	}
 
+
+	public Purchase getPurchase() {
+		return purchase;
+	}
+
+	public void setPurchase(Purchase purchase) {
+		this.purchase = purchase;
+	}
 
 	public void setId(int id) {
 		this.id = id;
