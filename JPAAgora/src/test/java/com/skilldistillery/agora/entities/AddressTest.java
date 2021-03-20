@@ -49,5 +49,10 @@ class AddressTest {
 		assertEquals("4 Elm", address.getStreet());
 		assertEquals("60026", address.getZipCode());
 	}
-
+	
+	@Test
+	@DisplayName("Testing Address user mapping")
+	void test2() {
+		assertEquals(1, address.getUser().getId());
+	}
 }
