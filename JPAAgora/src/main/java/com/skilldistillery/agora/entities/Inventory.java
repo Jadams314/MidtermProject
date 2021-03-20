@@ -1,5 +1,7 @@
 package com.skilldistillery.agora.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Inventory {
@@ -29,14 +32,23 @@ public class Inventory {
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;
-
-	// DB has product_id as foreign key
+	
+	@OneToMany(mappedBy="inventory")
+	private List<Purchase> purchase;
 
 	/*
 	 * ***** METHODS ******
 	 */
 
 	public Inventory() {
+	}
+
+	public List<Purchase> getPurchase() {
+		return purchase;
+	}
+
+	public void setPurchase(List<Purchase> purchase) {
+		this.purchase = purchase;
 	}
 
 	public Product getProduct() {

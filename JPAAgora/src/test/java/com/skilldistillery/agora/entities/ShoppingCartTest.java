@@ -60,7 +60,7 @@ class ShoppingCartTest {
 	void test2() {
 		assertNotNull(shoppingCart);
 		assertEquals(3, shoppingCart.getPurchase().getRating());
-		assertEquals(1, shoppingCart.getPurchase().getInventoryId());
+		assertEquals(1, shoppingCart.getPurchase().getInventory().getId());
 		
 	}
 

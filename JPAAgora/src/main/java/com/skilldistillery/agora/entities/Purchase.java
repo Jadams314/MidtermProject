@@ -19,8 +19,9 @@ public class Purchase {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	
 	private int id;
 	
-	@Column(name="inventory_id")
-	private int inventoryId;
+	@ManyToOne
+	@JoinColumn(name="inventory_id")
+	private Inventory inventory;
 	
 	private int rating;
 	
@@ -38,8 +39,17 @@ public class Purchase {
 	private List<ShoppingCart> shoppingCart;
 	//TODO: Add and remove methods?
 	
+	
 	//Constructors
 	public Purchase() {}
+
+	public Inventory getInventory() {
+		return inventory;
+	}
+
+	public void setInventory(Inventory inventory) {
+		this.inventory = inventory;
+	}
 
 	//Methods
 	public User getBuyer() {
@@ -64,14 +74,6 @@ public class Purchase {
 	
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getInventoryId() {
-		return inventoryId;
-	}
-
-	public void setInventoryId(int inventoryId) {
-		this.inventoryId = inventoryId;
 	}
 
 	public int getRating() {
@@ -123,7 +125,7 @@ public class Purchase {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Purchase [id=").append(id).append(", inventoryId=").append(inventoryId).append(", rating=")
+		builder.append("Purchase [id=").append(id).append(", inventoryId=").append(", rating=")
 				.append(rating).append(", review=").append(review).append(", purchaseDate=").append(purchaseDate)
 				.append(", buyer=").append(buyer).append("]");
 		return builder.toString();
