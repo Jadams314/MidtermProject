@@ -40,11 +40,24 @@ public class User {
 
 	@OneToMany(mappedBy = "seller")
 	private List<Product> products;
+	
+	@OneToMany(mappedBy = "user")
+	private List<ProductComment> comment;
+	
+	
 
 	/*
 	 ***** METHODS *****
 	 */
 	public User() {
+	}
+
+	public List<ProductComment> getComment() {
+		return comment;
+	}
+
+	public void setComment(List<ProductComment> comment) {
+		this.comment = comment;
 	}
 
 	public List<Product> getProducts() {
