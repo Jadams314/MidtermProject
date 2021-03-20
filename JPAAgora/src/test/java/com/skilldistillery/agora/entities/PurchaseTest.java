@@ -51,7 +51,7 @@ class PurchaseTest {
 		assertEquals(2, purchase.getBuyer().getId());
 		assertEquals(2020, purchase.getPurchaseDate().getYear());
 		assertEquals(3, purchase.getPurchaseDate().getMonthValue());
-	}
+}
 
 	@Test
 	@DisplayName("Testing ManyToOne Mapping Purchased To User")

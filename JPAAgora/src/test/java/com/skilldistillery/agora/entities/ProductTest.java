@@ -74,4 +74,12 @@ class ProductTest {
 		assertEquals(1, product.getInventory().get(0).getId());
 		assertEquals("Mask Inventory", product.getInventory().get(0).getName());
 	}
+
+	@Test
+	@DisplayName("Test Product ManyToOne Mappings to Category")
+	void test4() {
+		assertNotNull(product);
+		assertTrue(product.getCategories().size()>0);
+		assertNotNull(product.getCategories().get(0).getDescription());
+	}
 }

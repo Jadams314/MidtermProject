@@ -1,5 +1,6 @@
 package com.skilldistillery.agora.entities;
 
+import javax.persistence.CascadeType;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -172,6 +174,7 @@ public class User {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
 
 	@Override
 	public int hashCode() {

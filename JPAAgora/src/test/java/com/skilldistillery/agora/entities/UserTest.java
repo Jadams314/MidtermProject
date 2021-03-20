@@ -13,13 +13,11 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class UserTest {
 
-	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private User user;
@@ -38,6 +36,9 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
+
+		user = em.find(User.class, 2);
+
 		user = em.find(User.class, 2 );
 		user2 = em.find(User.class, 1);
 				
@@ -65,15 +66,14 @@ class UserTest {
 		
 		
 	}
-	
+
 	@Test
 	@DisplayName("Test OneToMany Mapping User To Purchased")
 	void test2() {
 		assertNotNull(user);
-		assertTrue(user.getPurchases().size()>0);
-		assertEquals("This mask is a test comment", 
-				user.getPurchases().get(0).getReview());
-		
+		assertTrue(user.getPurchases().size() > 0);
+		assertEquals("This mask is a test comment", user.getPurchases().get(0).getReview());
+
 	}
 
 	@Test
@@ -83,8 +83,7 @@ class UserTest {
 		assertEquals("test product", user.getProducts().get(0).getName());
 		assertTrue(user.getProducts().size() > 0);
 	}
-	
-	
+
 	@Test
 	@DisplayName("Testing User OneToMany product comment mapping")
 	void test4() {
@@ -93,11 +92,12 @@ class UserTest {
 		assertEquals("A comment",user2.getProductComment().get(0).getContent());
 
 	}
-	
+
+//	@Disabled
 	@Test
-	@DisplayName("Testing user OneToMany shopping cart mapping")
+	@DisplayName("Test user address mapping")
 	void test5() {
-		assertNotNull(user);
+		assertEquals("teststreet", user.getAddress().getStreet());
 		assertNotNull(user.getShoppingCart());
 		assertEquals(2020, user.getShoppingCart().get(0).getCreateDate().getYear());
 		assertFalse(user.getShoppingCart().get(0).isPurchased());
@@ -109,5 +109,6 @@ class UserTest {
 	void test6() {
 		assertEquals("teststreet", user.getAddress().getStreet());
 	
+
 	}
 }
