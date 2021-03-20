@@ -2,6 +2,7 @@ package com.skilldistillery.agora.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -52,6 +53,15 @@ class CategoryTest {
 		assertNotNull(category.getDescription());		
 		assertEquals("Mask Category", category.getName());
 		assertEquals("In Category - mask", category.getDescription());
+	}
+
+	@Test
+	@DisplayName("Test Category ManyToMany Mappings to Product")
+	void test2() {
+		assertNotNull(category);
+		assertTrue(category.getProducts().size()>0);
+		assertNotNull(category.getProducts());
+		assertTrue(category.getProducts().get(0).getPrice()>0);
 	}
 
 }

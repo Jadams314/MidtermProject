@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -37,13 +38,26 @@ public class Product {
 
 	@OneToMany(mappedBy = "product")
 	private List<Inventory> inventory;
+	
+	@ManyToMany(mappedBy="products")
+	private List<Category> categories;
 
-	public Product() {
+	//Constructors
+	public Product() {}
+
+	//Methods
+	public List<Category> getCategories() {
+		return categories;
 	}
-
+	
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+	
 	public List<Inventory> getInventory() {
 		return inventory;
 	}
+
 
 	public void setInventory(List<Inventory> inventory) {
 		this.inventory = inventory;
