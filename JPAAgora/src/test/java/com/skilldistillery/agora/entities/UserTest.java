@@ -84,10 +84,6 @@ class UserTest {
 		assertTrue(user.getProducts().size() > 0);
 	}
 	
-	//                 ***********************
-	//**** WILL FAIL with on line 38 user = em.find(User.class, 1 ); 
-	//**** Change to 	user = em.find(User.class, 2 ); for pass 
-	//                ************************
 	
 	@Test
 	@DisplayName("Testing User OneToMany product comment mapping")
