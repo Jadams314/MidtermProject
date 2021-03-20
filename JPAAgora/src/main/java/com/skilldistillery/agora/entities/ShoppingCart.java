@@ -36,6 +36,10 @@ public class ShoppingCart {
 	
 	@ManyToMany(mappedBy="shoppingCarts")
 	private List<Inventory> inventories;	
+
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	//Constructors
 	public ShoppingCart() {
@@ -55,6 +59,14 @@ public class ShoppingCart {
 		this.inventories = inventories;
 	}
 	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public int getId() {
 		return id;
 	}

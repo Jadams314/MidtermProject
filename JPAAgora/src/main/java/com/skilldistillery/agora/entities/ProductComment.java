@@ -27,10 +27,12 @@ public class ProductComment {
 	
 	//has user_id foreign key
 
+	
+	
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
-	
+
 	
 	//has product_id foreign key
 	
@@ -43,15 +45,21 @@ public class ProductComment {
 	
 	public ProductComment() {}
 	
-	
+
+
+
 	public User getUser() {
 		return user;
 	}
 
 
+
+
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+
 
 
 	public int getId() {

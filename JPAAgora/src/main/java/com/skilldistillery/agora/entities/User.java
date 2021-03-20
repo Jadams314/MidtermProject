@@ -2,12 +2,15 @@ package com.skilldistillery.agora.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -35,22 +38,42 @@ public class User {
 	@Column(name = "profile_img_url")
 	private String profileImgUrl;
 
-	@Column(name = "address_id")
-	private int addressId;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "address_id")
+	private Address address;
 
 	@OneToMany(mappedBy = "seller")
 	private List<Product> products;
 	
 	@OneToMany(mappedBy = "user")
-	private List<ProductComment> comment;
+	private List<ProductComment> productComment;
 	
 	@OneToMany(mappedBy="buyer")
 	private List<Purchase> purchases;
+	
+	@OneToMany(mappedBy="user")
+	private List<ShoppingCart> shoppingCart;
 
 	/*
 		***** METHODS *****
 	*/
 	public User() {}	
+
+	public List<ProductComment> getProductComment() {
+		return productComment;
+	}
+
+	public void setProductComment(List<ProductComment> productComment) {
+		this.productComment = productComment;
+	}
+
+	public List<ShoppingCart> getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(List<ShoppingCart> shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
 
 	public List<Purchase> getPurchases() {
 		return purchases;
@@ -60,13 +83,7 @@ public class User {
 		this.purchases = purchases;
 	}
 
-	public List<ProductComment> getComment() {
-		return comment;
-	}
 
-	public void setComment(List<ProductComment> comment) {
-		this.comment = comment;
-	}
 
 	public List<Product> getProducts() {
 		return products;
@@ -148,12 +165,12 @@ public class User {
 		this.profileImgUrl = profileImgUrl;
 	}
 
-	public int getAddressId() {
-		return addressId;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override
@@ -184,7 +201,7 @@ public class User {
 		builder.append("User [id=").append(id).append(", username=").append(username).append(", password=")
 				.append(password).append(", enabled=").append(enabled).append(", role=").append(role).append(", email=")
 				.append(email).append(", firstName=").append(firstName).append(", lastName=").append(lastName)
-				.append(", profileImgUrl=").append(profileImgUrl).append(", addressId=").append(addressId).append("]");
+				.append(", profileImgUrl=").append(profileImgUrl).append(", address=").append(address).append("]");
 		return builder.toString();
 	}
 
