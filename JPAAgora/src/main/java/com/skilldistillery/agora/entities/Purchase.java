@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -25,11 +26,12 @@ public class Purchase {
 	
 	private String review;
 	
-	@Column(name="buyer_id")
-	private int buyerId;
-	
 	@Column(name="purchase_date")
 	private LocalDateTime purchaseDate;
+	
+	@ManyToOne
+	@JoinColumn(name="buyer_id")
+	private User buyer;
 	
 	@OneToMany(mappedBy="purchase")
 	@Column(name="shopping_cart")
@@ -40,6 +42,14 @@ public class Purchase {
 	public Purchase() {}
 
 	//Methods
+	public User getBuyer() {
+		return buyer;
+	}
+
+	public void setBuyer(User buyer) {
+		this.buyer = buyer;
+	}
+
 	public List<ShoppingCart> getShoppingCart() {
 		return shoppingCart;
 	}
@@ -51,7 +61,7 @@ public class Purchase {
 	public int getId() {
 		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -78,14 +88,6 @@ public class Purchase {
 
 	public void setReview(String review) {
 		this.review = review;
-	}
-
-	public int getBuyerId() {
-		return buyerId;
-	}
-
-	public void setBuyerId(int buyerId) {
-		this.buyerId = buyerId;
 	}
 
 	public LocalDateTime getPurchaseDate() {
@@ -122,8 +124,8 @@ public class Purchase {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Purchase [id=").append(id).append(", inventoryId=").append(inventoryId).append(", rating=")
-				.append(rating).append(", review=").append(review).append(", buyerId=").append(buyerId)
-				.append(", purchaseDate=").append(purchaseDate).append("]");
+				.append(rating).append(", review=").append(review).append(", purchaseDate=").append(purchaseDate)
+				.append(", buyer=").append(buyer).append("]");
 		return builder.toString();
 	}
 	

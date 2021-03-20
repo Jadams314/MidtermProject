@@ -44,12 +44,20 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<ProductComment> comment;
 	
-	
+	@OneToMany(mappedBy="buyer")
+	private List<Purchase> purchases;
 
 	/*
-	 ***** METHODS *****
-	 */
-	public User() {
+		***** METHODS *****
+	*/
+	public User() {}	
+
+	public List<Purchase> getPurchases() {
+		return purchases;
+	}
+
+	public void setPurchases(List<Purchase> purchases) {
+		this.purchases = purchases;
 	}
 
 	public List<ProductComment> getComment() {
