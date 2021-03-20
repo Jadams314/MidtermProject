@@ -1,12 +1,13 @@
 package com.skilldistillery.agora.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -37,12 +38,24 @@ public class User {
 	@Column(name = "address_id")
 	private int addressId;
 	
-	
+	@OneToMany(mappedBy="buyer")
+	private List<Purchase> purchases;
 
 	/*
 		***** METHODS *****
 	*/
 	public User() {}
+	
+
+	public List<Purchase> getPurchases() {
+		return purchases;
+	}
+
+
+
+	public void setPurchases(List<Purchase> purchases) {
+		this.purchases = purchases;
+	}
 
 
 

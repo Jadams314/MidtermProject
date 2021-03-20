@@ -35,7 +35,7 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1 );
+		user = em.find(User.class, 2 );
 				
 	}
 
@@ -49,15 +49,25 @@ class UserTest {
 	@DisplayName("Test user entity mapping")
 	void test1() {
 		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-		assertEquals("admin", user.getPassword());
+		assertEquals("testuser", user.getUsername());
+		assertEquals("testuser", user.getPassword());
 		assertTrue(user.isEnabled());
 		assertEquals("admin", user.getRole());
-		assertEquals("adminemail@email.com", user.getEmail());
-		assertEquals("Bob", user.getFirstName());
-		assertEquals("Dole", user.getLastName());
-		assertEquals(1, user.getAddressId());
+		assertEquals("test@email.com", user.getEmail());
+		assertEquals("tes1", user.getFirstName());
+		assertEquals("test2", user.getLastName());
+		assertEquals(2, user.getAddressId());
 		
+		
+	}
+	
+	@Test
+	@DisplayName("Test OneToMany Mapping User To Purchased")
+	void test2() {
+		assertNotNull(user);
+		assertTrue(user.getPurchases().size()>0);
+		assertEquals("This mask is a test comment", 
+				user.getPurchases().get(0).getReview());
 		
 	}
 
