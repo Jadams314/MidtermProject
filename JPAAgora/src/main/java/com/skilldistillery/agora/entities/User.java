@@ -1,12 +1,13 @@
 package com.skilldistillery.agora.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -34,8 +35,9 @@ public class User {
 	@Column(name = "profile_img_url")	
 	private String profileImgUrl;
 	
-	@Column(name = "address_id")
-	private int addressId;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "address_id")
+	private Address address;
 	
 	
 
@@ -154,14 +156,14 @@ public class User {
 
 
 
-	public int getAddressId() {
-		return addressId;
+	public Address getAddress() {
+		return address;
 	}
 
 
 
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 
@@ -198,7 +200,7 @@ public class User {
 		builder.append("User [id=").append(id).append(", username=").append(username).append(", password=")
 				.append(password).append(", enabled=").append(enabled).append(", role=").append(role).append(", email=")
 				.append(email).append(", firstName=").append(firstName).append(", lastName=").append(lastName)
-				.append(", profileImgUrl=").append(profileImgUrl).append(", addressId=").append(addressId).append("]");
+				.append(", profileImgUrl=").append(profileImgUrl).append(", addressId=").append(address).append("]");
 		return builder.toString();
 	}
 

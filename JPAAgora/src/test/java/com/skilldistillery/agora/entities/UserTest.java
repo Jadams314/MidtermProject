@@ -12,6 +12,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -45,6 +46,7 @@ class UserTest {
 		user = null;
 	}
 
+//	@Disabled
 	@Test
 	@DisplayName("Test user entity mapping")
 	void test1() {
@@ -56,9 +58,17 @@ class UserTest {
 		assertEquals("adminemail@email.com", user.getEmail());
 		assertEquals("Bob", user.getFirstName());
 		assertEquals("Dole", user.getLastName());
-		assertEquals(1, user.getAddressId());
+		assertEquals(1, user.getAddress().getId());
 		
 		
 	}
+//	@Disabled
+	@Test
+	@DisplayName("Test user address mapping")
+	void test2() {
+		assertEquals("4 Elm", user.getAddress().getStreet());
+
+	}
+	
 
 }

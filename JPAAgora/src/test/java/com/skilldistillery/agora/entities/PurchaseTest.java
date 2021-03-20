@@ -50,6 +50,6 @@ class PurchaseTest {
 		assertEquals(2, purchase.getBuyerId());
 		assertEquals(2020, purchase.getPurchaseDate().getYear());
 		assertEquals(3, purchase.getPurchaseDate().getMonthValue());
-		assertEquals(18, purchase.getPurchaseDate().getDayOfMonth());
+		assertEquals(17, purchase.getPurchaseDate().getDayOfMonth());
 	}
 }
