@@ -61,7 +61,7 @@ class UserTest {
 		assertEquals("test@email.com", user.getEmail());
 		assertEquals("tes1", user.getFirstName());
 		assertEquals("test2", user.getLastName());
-		assertEquals(2, user.getAddressId());
+		assertNotNull(user.getAddress());
 		
 		
 	}
@@ -103,4 +103,11 @@ class UserTest {
 		assertFalse(user.getShoppingCart().get(0).isPurchased());
 	}
 	
+//	@Disabled //only works with user 2 atm 
+	@Test
+	@DisplayName("Test user address mapping")
+	void test6() {
+		assertEquals("teststreet", user.getAddress().getStreet());
+	
+	}
 }
