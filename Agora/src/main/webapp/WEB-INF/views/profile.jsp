@@ -10,5 +10,12 @@
 
 <h1>WELCOME TO THE PROFILE</h1>
 
+<div>
+	<h3>See Inventory</h3>
+	<form action="inventory.do" method="GET">
+	  <input type="submit" value="View Inventory" />
+	</form>
+</div>
+
 </body>
 </html>
