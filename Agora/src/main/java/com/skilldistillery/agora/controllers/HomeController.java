@@ -21,6 +21,10 @@ public class HomeController {
 		model.addAttribute("TEST", userDao.findById(1));
 		return "index";
 	}
+	@RequestMapping(path = "register.do")
+	public String registerPage(Model model) {
+		return "views/register";
+	}
 
 	@RequestMapping(path = "login.do", params = { "username", "password" })
 	public String login(Model model, String username, String password, HttpSession session) {
