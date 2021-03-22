@@ -16,6 +16,25 @@
 	  <input type="submit" value="View Inventory" />
 	</form>
 </div>
+<div>
+	<h3>Search Products by ID</h3>
+	<form action="findProdById.do" method="GET">
+	 <input type="text" name="pid"/> 
+	  <input type="submit" value="submit" />
+	</form>
+</div>
+<div>
+	<h3>Search Products by Keyword</h3>
+	<form action="findProdByKW.do" method="GET">
+	 <input type="text" name="kw"/> 
+	  <input type="submit" value="submit" />
+	</form>
+</div>
+<div>
+	<h3>Display all</h3><form action="findAllProd.do" method="GET">
+	  <input type="submit" value="submit" />
+	</form>
+</div>
 
 </body>
 </html>
