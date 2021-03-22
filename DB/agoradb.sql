@@ -21,7 +21,7 @@ USE `agoradb` ;
 DROP TABLE IF EXISTS `address` ;
 
 CREATE TABLE IF NOT EXISTS `address` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `street` VARCHAR(2000) NULL,
   `city` VARCHAR(200) NULL,
   `state` VARCHAR(200) NULL,
