@@ -7,11 +7,14 @@
 <title>Product By ID</title>
 </head>
 <body>
-<h1>Product:</h1>
+<h1>Products:</h1>
 <div>
-  <h5>${product.name} (${prodict.id})</h5>
+  <h5>${product.name} (${product.id})</h5>
   <p> ${product.description}</p>
 </div>
+<h5>${products}</h5>
+
+<h5>${productList}</h5>
 
 </body>
 </html>

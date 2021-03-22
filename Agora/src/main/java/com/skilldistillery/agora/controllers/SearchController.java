@@ -28,7 +28,6 @@ public class SearchController {
 		Product product = search.findById(pid);
 		model.addAttribute("product", product);
 		return "views/product";
-		
 	
 	}
 	@RequestMapping(path= "findProdByKW.do")
