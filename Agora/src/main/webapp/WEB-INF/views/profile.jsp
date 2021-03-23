@@ -33,11 +33,11 @@
 <ul class="navbar-nav mr-auto">
 
 	<li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="inventory.do">Inventory.do</a>
     </li>
 
 	<li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="findAllProd.do">findAllProd.do</a>
     </li>
 
 	<li class="nav-item">
