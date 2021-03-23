@@ -351,6 +351,9 @@ USE `agoradb`;
 INSERT INTO `category` (`id`, `name`, `description`) VALUES (1, 'Mask', 'In Category - mask');
 INSERT INTO `category` (`id`, `name`, `description`) VALUES (2, 'Test', 'Test in Category');
 INSERT INTO `category` (`id`, `name`, `description`) VALUES (3, 'Video Game Console', 'The latest video game console');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (4, 'Video Game', 'A video game');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (5, 'New', 'A new product');
+INSERT INTO `category` (`id`, `name`, `description`) VALUES (6, 'Used', 'A used product');
 
 COMMIT;
 
@@ -371,8 +374,15 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `agoradb`;
-INSERT INTO `product_comment` (`id`, `content`, `create_date`, `product_id`, `user_id`) VALUES (1, 'A comment', '2020-03-18', 1, 1);
+INSERT INTO `product_comment` (`id`, `content`, `create_date`, `product_id`, `user_id`) VALUES (1, 'This is the BEST MASK EVER!', '2020-03-18', 1, 1);
 INSERT INTO `product_comment` (`id`, `content`, `create_date`, `product_id`, `user_id`) VALUES (2, 'A test Comment', '2020-03-18', 2, 1);
+INSERT INTO `product_comment` (`id`, `content`, `create_date`, `product_id`, `user_id`) VALUES (3, 'You\'ll LOVE the NES!', '2020-03-18', 3, 3);
+INSERT INTO `product_comment` (`id`, `content`, `create_date`, `product_id`, `user_id`) VALUES (4, 'GENESIS is the best!', '2020-03-18', 4, 4);
+INSERT INTO `product_comment` (`id`, `content`, `create_date`, `product_id`, `user_id`) VALUES (5, 'PS RULES!', '2020-03-18', 5, 5);
+INSERT INTO `product_comment` (`id`, `content`, `create_date`, `product_id`, `user_id`) VALUES (6, 'XBOX is SOOOO COOL', '2020-03-18', 6, 1);
+INSERT INTO `product_comment` (`id`, `content`, `create_date`, `product_id`, `user_id`) VALUES (7, 'HALO, need I say more!?', '2020-03-18', 9, 4);
+INSERT INTO `product_comment` (`id`, `content`, `create_date`, `product_id`, `user_id`) VALUES (8, 'GOW, the only reason to own PS', '2020-03-18', 10, 5);
+INSERT INTO `product_comment` (`id`, `content`, `create_date`, `product_id`, `user_id`) VALUES (9, 'Atari is the GOAT', '2020-03-18', 11, 1);
+INSERT INTO `product_comment` (`id`, `content`, `create_date`, `product_id`, `user_id`) VALUES (10, 'Atari is the GOAT(UPDATE/DELETE)', '2020-03-18', 11, 1);
 
 COMMIT;
-
