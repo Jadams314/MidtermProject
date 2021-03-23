@@ -1,6 +1,6 @@
 package com.skilldistillery.agora.dao;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -29,16 +29,16 @@ public class SearchDAOImpl implements SearchDao {
 		return em.createQuery(jpql, Product.class).getResultList();
 	}
 
-	
+	@Override
 	public List<Product> findProductByKeyword(String keyword) {
 
-		List<Product> matches = new LinkedList<>();
-
 		String jpql = "SELECT p from Product p WHERE p.name LIKE :keyword";
-			matches = em.createQuery(jpql, Product.class).setParameter("keyword", keyword).getResultList();
+		List<Object>results = em.createQuery(jpql, Object.class).setParameter("keyword","%" + keyword+ "%").getResultList();
+			System.out.println("***********************************"+results);
+			List<Product>list = new ArrayList<>();
 
-
-		return matches;
-// 
+			results.stream().forEach(x -> list.add((Product)x));
+			
+		return list;
 	}
 }

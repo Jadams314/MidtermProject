@@ -26,7 +26,7 @@
 <div>
 	<h3>Search Products by Keyword</h3>
 	<form action="findProdByKW.do" method="GET">
-	 <input type="text" name="products"/> 
+	 <input type="text" name="keywordSearch"/> 
 	  <input type="submit" value="submit" />
 	</form>
 </div>

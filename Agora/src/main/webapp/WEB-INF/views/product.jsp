@@ -12,9 +12,9 @@
   <h5>${product.name} (${product.id})</h5>
   <p> ${product.description}</p>
 </div>
-<h5>${products}</h5>
+<h5>${displayAll}</h5>
 
-<h5>${productList}</h5>
+<h5>${keywordSearch}</h5>
 
 </body>
 </html>

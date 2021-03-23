@@ -20,7 +20,7 @@ public class SearchController {
 	@RequestMapping(path= "findAllProd.do")
 	public String Allproducts(Model model) {
 		List<Product> products = search.findAll();
-		model.addAttribute("productList", products);
+		model.addAttribute("displayAll", products);
 		return "views/product";
 	}
 	@RequestMapping(path= "findProdById.do")
@@ -31,9 +31,9 @@ public class SearchController {
 	
 	}
 	@RequestMapping(path= "findProdByKW.do")
-	public String findProdByKW(String keyword, Model model) {
-		List<Product> products = search.findProductByKeyword(keyword);
-		model.addAttribute("products", products);
+	public String findProdByKW(String keywordSearch, Model model) {
+		List<Product> products = search.findProductByKeyword(keywordSearch);
+		model.addAttribute("keywordSearch", products);
 		return "views/product";
 	
 	}
