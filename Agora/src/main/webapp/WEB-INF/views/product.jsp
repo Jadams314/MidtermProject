@@ -19,7 +19,23 @@
 
 	
 <!--Display all Products-->		
-	<h5>${displayAll}</h5>
+<%-- 	<h5>${displayAll}</h5> --%>
+	<table class="table">
+		<thead class="table">
+			<th>ID</th>
+			<th>Name</th>
+			<th>Description</th>
+		</thead>
+		<tbody>
+			<c:forEach var="p" items="${displayAll}">
+				<tr>
+					<td>${p.id}</td>
+					<td>${p.name}</td>
+					<td>${p.description }</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 <!--Display all Products-->		
 
 <!--Products By keyword-->		
