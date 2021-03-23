@@ -18,8 +18,12 @@ public class HomeController {
 	private UserDAO userDao;
 
 	@RequestMapping(path = { "/", "home.do" })
-	public String home(Model model) {
-		model.addAttribute("TEST", userDao.findById(1));
+	public String home(Model model, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		if (user != null) {
+			session.setAttribute("user", user);
+			return "views/profile";
+		}
 		return "index";
 	}
 
