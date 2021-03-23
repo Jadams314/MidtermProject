@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.agora.entities.ShoppingCart;
+import com.skilldistillery.agora.entities.User;
 
 @Service
 @Transactional
@@ -30,7 +31,8 @@ public class CartDAOImpl implements CartDAO {
 	@Override
 	public void addToCart(int userId, int inventoryId) {
 		
-		
+		ShoppingCart shoppingCart = new ShoppingCart();
+		shoppingCart.setUser((User)(em.find(User.class, userId)));
 		
 	}
 
