@@ -67,14 +67,6 @@ class UserTest {
 		
 	}
 
-	@Test
-	@DisplayName("Test OneToMany Mapping User To Purchased")
-	void test2() {
-		assertNotNull(user);
-		assertTrue(user.getPurchases().size() > 0);
-		assertEquals("This mask is a test comment", user.getPurchases().get(0).getReview());
-
-	}
 
 	@Test
 	@DisplayName("Test User entity mapping to Product")
@@ -88,8 +80,8 @@ class UserTest {
 	@DisplayName("Testing User OneToMany product comment mapping")
 	void test4() {
 		assertNotNull(user2);
-		assertNotNull(user2.getProductComment());
-		assertEquals("A comment",user2.getProductComment().get(0).getContent());
+		assertNotNull(user2.getProductComments());
+		assertEquals("A comment",user2.getProductComments().get(0).getContent());
 
 	}
 
@@ -98,9 +90,9 @@ class UserTest {
 	@DisplayName("Test user address mapping")
 	void test5() {
 		assertEquals("teststreet", user.getAddress().getStreet());
-		assertNotNull(user.getShoppingCart());
-		assertEquals(2020, user.getShoppingCart().get(0).getCreateDate().getYear());
-		assertFalse(user.getShoppingCart().get(0).isPurchased());
+		assertNotNull(user.getShoppingCarts());
+		assertEquals(2020, user.getShoppingCarts().get(0).getCreateDate().getYear());
+		assertFalse(user.getShoppingCarts().get(0).isPurchased());
 	}
 	
 //	@Disabled //only works with user 2 atm 
@@ -111,4 +103,13 @@ class UserTest {
 	
 
 	}
+	@Test
+	@DisplayName("Testing User OneToMany shopping carts mapping")
+	void test7() {
+		assertNotNull(user);
+		assertNotNull(user.getShoppingCarts());
+		assertEquals(1,user.getShoppingCarts().get(0).getId());
+
+	}
+	
 }

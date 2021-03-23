@@ -386,4 +386,3 @@ INSERT INTO `product_comment` (`id`, `content`, `create_date`, `product_id`, `us
 INSERT INTO `product_comment` (`id`, `content`, `create_date`, `product_id`, `user_id`) VALUES (10, 'Atari is the GOAT(UPDATE/DELETE)', '2020-03-18', 11, 1);
 
 COMMIT;
-

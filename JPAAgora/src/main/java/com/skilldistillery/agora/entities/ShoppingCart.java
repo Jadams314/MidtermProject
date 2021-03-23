@@ -9,8 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,12 +30,8 @@ public class ShoppingCart {
 	@Column(name = "checkout_date")
 	private LocalDateTime checkoutDate;
 	
-	@ManyToOne
-	@JoinColumn(name = "purchase_id")
-	private Purchase purchase;
-	
-	@ManyToMany(mappedBy="shoppingCarts")
-	private List<Inventory> inventories;	
+	@OneToMany(mappedBy="shoppingCart")
+	private List<Purchase> purchases;	
 
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -51,12 +47,12 @@ public class ShoppingCart {
 	 */	
 
 
-	public List<Inventory> getInventories() {
-		return inventories;
+	public List<Purchase> getPurchases() {
+		return purchases;
 	}
 
-	public void setInventories(List<Inventory> inventories) {
-		this.inventories = inventories;
+	public void setPurchases(List<Purchase> purchases) {
+		this.purchases = purchases;
 	}
 	
 	public User getUser() {
@@ -69,14 +65,6 @@ public class ShoppingCart {
 
 	public int getId() {
 		return id;
-	}
-
-	public Purchase getPurchase() {
-		return purchase;
-	}
-
-	public void setPurchase(Purchase purchase) {
-		this.purchase = purchase;
 	}
 
 	public void setId(int id) {

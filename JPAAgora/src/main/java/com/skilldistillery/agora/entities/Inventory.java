@@ -39,11 +39,6 @@ public class Inventory {
 	@OneToMany(mappedBy="inventory")
 	private List<Purchase> purchase;
 	
-	@ManyToMany(cascade = CascadeType.PERSIST)
-	@JoinTable(name="inventory_to_shopping_cart", 
-	joinColumns=@JoinColumn(name="inventory_id"),
-	inverseJoinColumns=@JoinColumn(name="shopping_cart_id"))
-	private List<ShoppingCart> shoppingCarts;
 
 	/*
 	 * ***** METHODS ******
@@ -60,14 +55,7 @@ public class Inventory {
 	public void setPurchase(List<Purchase> purchase) {
 		this.purchase = purchase;
 	}
-		
-	public List<ShoppingCart> getShoppingCarts() {
-		return shoppingCarts;
-	}
-
-	public void setShoppingCarts(List<ShoppingCart> shoppingCarts) {
-		this.shoppingCarts = shoppingCarts;	
-	}
+	
 
 	public Product getProduct() {
 		return product;
