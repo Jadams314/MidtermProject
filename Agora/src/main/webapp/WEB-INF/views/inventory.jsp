@@ -12,7 +12,7 @@
 <body>
 	<h1>Inventory List</h1>
 	<c:forEach var="i" items="${inventory}">
-		<p>${i.id}${i.name}${i.description}
+		<p>${i.id}: ${i.name}<br>${i.description}
 		<form action=addToCart.do method="GET">
 			<input type="hidden" name="id" value="${i.id}">
 			<button class="btn" type="submit">Add To Cart</button>
