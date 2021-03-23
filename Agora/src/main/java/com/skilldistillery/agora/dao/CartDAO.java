@@ -2,14 +2,17 @@ package com.skilldistillery.agora.dao;
 
 import java.util.List;
 
+import com.skilldistillery.agora.entities.Inventory;
 import com.skilldistillery.agora.entities.ShoppingCart;
+import com.skilldistillery.agora.entities.User;
 
 public interface CartDAO {
 	
-	List<ShoppingCart> getShoppingCart(int userId);
+	ShoppingCart getShoppingCart(User user);
 	
-	void addToCart(int userId, int inventoryId);
+	void addToCart(User user, Inventory item);
 	
-	void removeFromCart(int userId, int inventoryId);
+	void removeFromCart(User user, Inventory item);
+
 
 }
