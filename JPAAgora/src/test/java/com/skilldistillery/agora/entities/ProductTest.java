@@ -54,7 +54,7 @@ class ProductTest {
 		assertNotNull(product.getDescription());
 		assertEquals("Mask product", product.getName());
 		assertEquals("Face mask in Product", product.getDescription());
-		assertEquals(5.0, product.getPrice());
+		assertEquals(3.99, product.getPrice());
 		LocalDateTime createDate = product.getCreationDate();
 		assertEquals(2020, createDate.getYear());
 		assertEquals(03, createDate.getMonthValue());

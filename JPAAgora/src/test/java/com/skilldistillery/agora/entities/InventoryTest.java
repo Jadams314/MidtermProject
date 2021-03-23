@@ -64,7 +64,7 @@ class InventoryTest {
 		assertNotNull(item);
 		assertEquals("Mask product", item.getProduct().getName());
 		assertEquals(1, item.getProduct().getId());
-		assertEquals(5,item.getProduct().getPrice());
+		assertEquals(3.99,item.getProduct().getPrice());
 	}
 
 	
@@ -76,12 +76,4 @@ class InventoryTest {
 		assertEquals(4 ,item2.getPurchase().get(0).getRating());
 	}
 
-	@Test
-	@DisplayName("Testing inventory ManyToOne Mappings with ShoppingCart")
-	void test4() {
-		assertNotNull(item);
-		assertTrue(item.getShoppingCarts().size()>0);
-		assertFalse(item.getShoppingCarts().get(0).isPurchased());
-		
-	}
 }

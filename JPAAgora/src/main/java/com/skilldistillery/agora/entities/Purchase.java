@@ -31,12 +31,8 @@ public class Purchase {
 	private LocalDateTime purchaseDate;
 	
 	@ManyToOne
-	@JoinColumn(name="buyer_id")
-	private User buyer;
-	
-	@OneToMany(mappedBy="purchase")
-	@Column(name="shopping_cart")
-	private List<ShoppingCart> shoppingCart;
+	@JoinColumn(name="shopping_cart_id")
+	private ShoppingCart shoppingCart;
 	//TODO: Add and remove methods?
 	
 	
@@ -52,19 +48,12 @@ public class Purchase {
 	}
 
 	//Methods
-	public User getBuyer() {
-		return buyer;
-	}
 
-	public void setBuyer(User buyer) {
-		this.buyer = buyer;
-	}
-
-	public List<ShoppingCart> getShoppingCart() {
+	public ShoppingCart getShoppingCart() {
 		return shoppingCart;
 	}
 
-	public void setShoppingCart(List<ShoppingCart> shoppingCart) {
+	public void setShoppingCart(ShoppingCart shoppingCart) {
 		this.shoppingCart = shoppingCart;
 	}
 	
@@ -127,7 +116,7 @@ public class Purchase {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Purchase [id=").append(id).append(", inventoryId=").append(", rating=")
 				.append(rating).append(", review=").append(review).append(", purchaseDate=").append(purchaseDate)
-				.append(", buyer=").append(buyer).append("]");
+				.append("]");
 		return builder.toString();
 	}
 	

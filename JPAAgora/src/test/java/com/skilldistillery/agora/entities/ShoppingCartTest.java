@@ -55,21 +55,13 @@ class ShoppingCartTest {
 		
 	}
 
-	@Test
-	@DisplayName("Test Shopping Cart ManyToOne Mappings with Purchase")
-	void test2() {
-		assertNotNull(shoppingCart);
-		assertEquals(3, shoppingCart.getPurchase().getRating());
-		assertEquals(1, shoppingCart.getPurchase().getInventory().getId());
-		
-	}
 
 	@Test
 	@DisplayName("Test Shopping Cart ManyToMany Mappings with Inventory")
 	void test3() {
 		assertNotNull(shoppingCart);
-		assertTrue(shoppingCart.getInventories().size()>0);
-		assertTrue(shoppingCart.getInventories().get(0).isAvailable());
+		assertTrue(shoppingCart.getPurchases().size()>0);
+		assertEquals(1, shoppingCart.getPurchases().get(0).getInventory().getId());
 	}
 
 }

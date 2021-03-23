@@ -51,7 +51,7 @@ class CategoryTest {
 		assertNotNull(category);
 		assertNotNull(category.getName());
 		assertNotNull(category.getDescription());		
-		assertEquals("Mask Category", category.getName());
+		assertEquals("Mask", category.getName());
 		assertEquals("In Category - mask", category.getDescription());
 	}
 

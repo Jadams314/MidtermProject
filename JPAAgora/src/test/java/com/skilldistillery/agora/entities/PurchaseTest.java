@@ -48,24 +48,15 @@ class PurchaseTest {
 	void test1() {
 		assertNotNull(purchase);
 		assertEquals(4, purchase.getRating());
-		assertEquals(2, purchase.getBuyer().getId());
 		assertEquals(2020, purchase.getPurchaseDate().getYear());
 		assertEquals(3, purchase.getPurchaseDate().getMonthValue());
 }
 
-	@Test
-	@DisplayName("Testing ManyToOne Mapping Purchased To User")
-	void test2() {
-		assertNotNull(purchase);
-		assertEquals("test@email.com", purchase.getBuyer().getEmail());
-		assertEquals("testuser", purchase.getBuyer().getUsername());
-	}
 
 	@DisplayName("Testing OneToMany Mapping with ShoppigCart")
-	void test3() {
+	void test2() {
 		assertNotNull(purchase);
-		assertTrue(purchase.getShoppingCart().size() > 0);
-		assertEquals(false, purchase.getShoppingCart().get(0).isPurchased());
-		assertEquals(2, purchase.getShoppingCart().get(0).getPurchase().getId());
+		assertNotNull(purchase.getShoppingCart());
+		assertEquals(1, purchase.getShoppingCart().getId());
 	} 
 }
