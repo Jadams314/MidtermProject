@@ -1,6 +1,7 @@
 package com.skilldistillery.agora.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -36,6 +37,7 @@ public class ShoppingCart {
 	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
+	
 	
 	//Constructors
 	public ShoppingCart() {
@@ -100,6 +102,25 @@ public class ShoppingCart {
 	public void setCheckoutDate(LocalDateTime checkoutDate) {
 		this.checkoutDate = checkoutDate;
 	}
+	
+	
+	public void addPurchase(Purchase purchase) {
+		if (purchases == null) purchases = new ArrayList<>();
+		
+		if (!purchases.contains(purchase)) {
+			purchases.add(purchase);
+		}
+		purchase.setShoppingCart(this);
+	}
+	
+	public void removePurchase(Purchase purchase) {
+		purchase.setShoppingCart(null);
+		
+		if (purchases != null) {
+			purchases.remove(purchase);
+		}
+	}
+	
 
 
 	@Override

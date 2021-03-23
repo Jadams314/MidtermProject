@@ -82,6 +82,11 @@
 	  <button type="submit" value="submit">Browse All</button>
 	</form>
 </div>
+<div>
+	<h3>Shopping Cart</h3><form action="viewCart.do" method="GET">
+	  <input type="submit" value="submit" />
+	</form>
+</div>
 </div>
 </div>
 </div>

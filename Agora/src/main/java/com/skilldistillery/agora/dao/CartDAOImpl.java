@@ -1,5 +1,7 @@
 package com.skilldistillery.agora.dao;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +10,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.agora.entities.Inventory;
+import com.skilldistillery.agora.entities.Purchase;
 import com.skilldistillery.agora.entities.ShoppingCart;
 import com.skilldistillery.agora.entities.User;
 
@@ -19,27 +23,43 @@ public class CartDAOImpl implements CartDAO {
 	private EntityManager em;
 
 	@Override
-	public List<ShoppingCart> getShoppingCart(int userId) {
+	public ShoppingCart getShoppingCart(User user) {
+		ShoppingCart sc = null;
 		
-		String query = "SELECT s from ShoppingCart s WHERE s.userId = :userId";
+		String query = "SELECT s from ShoppingCart s WHERE s.user.id = :userId AND s.isPurchased != true";
+		List<ShoppingCart> shoppingCarts = em.createQuery(query, ShoppingCart.class).setParameter("userId", user.getId()).getResultList();
 		
-		List<ShoppingCart> shoppingCart = em.createQuery(query, ShoppingCart.class).setParameter("userId", userId).getResultList();
+		if (shoppingCarts.size() > 0) {
+			sc = shoppingCarts.get(0);
+		}else {
+			sc = new ShoppingCart();
+			sc.setCheckoutDate(LocalDateTime.now());
+			sc.setPurchases(new ArrayList<>());
+			sc.setPurchased(false);
+			sc.setUser(user);
+			em.persist(sc);
+		}
 		
-		return shoppingCart;
+		return sc;
+	
 	}
 
 	@Override
-	public void addToCart(int userId, int inventoryId) {
-		
-		ShoppingCart shoppingCart = new ShoppingCart();
-		shoppingCart.setUser((User)(em.find(User.class, userId)));
+	public void addToCart(User user, Inventory item) {
+		Purchase purchase = new Purchase();
+		purchase.setInventory(item);
+		ShoppingCart sc = getShoppingCart(user);
+		sc.addPurchase(purchase);
+		em.persist(purchase);
+		em.persist(sc);
 		
 	}
 
 	@Override
-	public void removeFromCart(int userId, int inventoryId) {
-		
-		
+	public void removeFromCart(User user, Inventory item) {
+		ShoppingCart sc = getShoppingCart(user);
+		sc.getPurchases().remove(item);
+		em.persist(sc);
 		
 	}
 
