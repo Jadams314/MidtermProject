@@ -16,10 +16,10 @@
 </head>
 <body>
 
-<div class="header text-center">
-<h1>[UserName here? Or logo?]</h1>
+<div class="container header text-center">
+<h1>Agora Mercantile</h1>
 </div>
-
+<div class="container center">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
 <a class="navbar-brand" href="profile.do">Home</a>
@@ -46,38 +46,41 @@
 
 </ul>
  <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="aBlack btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search Entire Site" aria-label="Search">
+      <button type="submit">Submit</button>
  </form>
 </div>
 </nav>
 
-<div class="container-fluid background text-center">
+<div class="container-fluid bgimage text-center">
 
+<div class="transbox center">
 
 <div>
 	<form action="inventory.do" method="GET">
-	  <input type="submit" value="View Inventory" />
+	  <button type="submit" value="submit">Your Inventory</button>
 	</form>
 </div>
 <div>
 	<h3>Search Products by ID</h3>
 	<form action="findProdById.do" method="GET">
 	 <input type="text" name="pid"/> 
-	  <input type="submit" value="submit" />
+	  <button type="submit" value="submit">Search</button>
 	</form>
 </div>
 <div>
 	<h3>Search Products by Keyword</h3>
 	<form action="findProdByKW.do" method="GET">
 	 <input type="text" name="keywordSearch"/> 
-	  <input type="submit" value="submit" />
+	  <button type="submit" value="submit">Search</button>
 	</form>
 </div>
 <div>
-	<h3>Display all</h3><form action="findAllProd.do" method="GET">
-	  <input type="submit" value="submit" />
+	<form action="findAllProd.do" method="GET">
+	  <button type="submit" value="submit">Browse All</button>
 	</form>
+</div>
+</div>
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

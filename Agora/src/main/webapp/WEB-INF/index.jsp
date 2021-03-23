@@ -20,7 +20,7 @@
 <h1>Welcome to Agora</h1>
 </div>
 
-<div class="container-fluid background" >
+<div class="container-fluid bgimage" >
 
 	<div>	
 	
