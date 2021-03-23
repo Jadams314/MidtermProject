@@ -22,7 +22,7 @@
 <div class="container center">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-<a class="navbar-brand" href="profile.do">Home</a>
+<a class="navbar-brand" href="home.do">Home</a>
 
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -80,11 +80,6 @@
 <div>
 	<form action="findAllProd.do" method="GET">
 	  <button type="submit" value="submit">Browse All</button>
-	</form>
-</div>
-<div>
-	<h3>Shopping Cart</h3><form action="viewCart.do" method="GET">
-	  <input type="submit" value="submit" />
 	</form>
 </div>
 </div>
