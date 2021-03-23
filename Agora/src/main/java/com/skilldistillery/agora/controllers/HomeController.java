@@ -26,6 +26,16 @@ public class HomeController {
 		}
 		return "index";
 	}
+	
+	@RequestMapping(path =  "logout.do" )
+	public String logout(Model model, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		if (user != null) {
+			session.removeAttribute("user");
+			return "index";
+		}
+		return "index";
+	}
 
 	
 	// Simple nav controller to take the user to the registration form

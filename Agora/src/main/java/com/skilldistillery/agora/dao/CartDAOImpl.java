@@ -58,8 +58,14 @@ public class CartDAOImpl implements CartDAO {
 	@Override
 	public void removeFromCart(User user, Inventory item) {
 		ShoppingCart sc = getShoppingCart(user);
-		sc.getPurchases().remove(item);
-		em.persist(sc);
+		List<Purchase> purchase = sc.getPurchases();
+		
+		for (Purchase result : purchase) {
+			if (result.getInventory().getId() == item.getId()) {
+				sc.removePurchase(result);
+				em.persist(sc);
+			}
+		}
 		
 	}
 

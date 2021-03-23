@@ -63,10 +63,18 @@ public class CartController {
 		
 	}
 	@RequestMapping(path= "removeFromCart.do")
-	public String removeFromCart(HttpSession session, Inventory item) {
+	public String removeFromCart(HttpSession session, Inventory item, Model model) {
 		User user = (User) session.getAttribute("user");
 		if(user != null) {
 			dao.removeFromCart(user, item);
+			ShoppingCart cart = dao.getShoppingCart(user);
+			List<Purchase> list	= cart.getPurchases();
+			List<Inventory> items = new ArrayList<>();
+			
+			for (Purchase purchase : list) {
+				items.add(purchase.getInventory());
+			}
+			model.addAttribute("cart", items);
 			return "views/shoppingCart";
 		}
 		return "index";

@@ -88,6 +88,8 @@ public class Purchase {
 	public void setPurchaseDate(LocalDateTime purchaseDate) {
 		this.purchaseDate = purchaseDate;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {

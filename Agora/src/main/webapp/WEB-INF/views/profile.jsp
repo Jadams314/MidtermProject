@@ -45,7 +45,7 @@
     </li>
 
 </ul>
-<a href="viewcart.do"><img src="/resources/images/carticon.png" alt="cart icon"/></a>
+<a href="viewCart.do"><img src="/resources/images/carticon.png" alt="cart icon"/></a>
  <!-- <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search Entire Site" aria-label="Search">
       <button type="submit">Submit</button>
