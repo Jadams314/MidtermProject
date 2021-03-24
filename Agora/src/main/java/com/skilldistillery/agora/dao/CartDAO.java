@@ -10,7 +10,7 @@ public interface CartDAO {
 	
 	ShoppingCart getShoppingCart(User user);
 	
-	void addToCart(User user, Inventory item);
+	Inventory addToCart(User user, Inventory item);
 	
 	void removeFromCart(User user, Inventory item);
 

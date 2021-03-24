@@ -45,14 +45,17 @@ public class CartDAOImpl implements CartDAO {
 	}
 
 	@Override
-	public void addToCart(User user, Inventory item) {
+	public Inventory addToCart(User user, Inventory item) {
+		item = em.find(Inventory.class, item.getId());
 		Purchase purchase = new Purchase();
 		purchase.setInventory(item);
 		ShoppingCart sc = getShoppingCart(user);
 		sc.addPurchase(purchase);
 		em.persist(purchase);
 		em.persist(sc);
+		em.flush();
 		
+		return item;
 	}
 
 	@Override

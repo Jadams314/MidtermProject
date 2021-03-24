@@ -3,7 +3,7 @@
 	background-position: center;
   	background-repeat: no-repeat;
   	background-size: cover;
-  	max-height: 600px;
+  	max-height: 650px;
 }
 .background2 { 
 	background: url(resources/images/agora.jpg);
@@ -24,7 +24,7 @@ div.container.footer {
 	border-color: black;
 }
 
-h3 {
+h2, h3 {
 	color: black;
 	margin: 4px;
 }
@@ -35,13 +35,19 @@ h3 {
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 5px;
   display: inline-block;
+  max-height: 550px;
 
 }
 
 div.scrolley {
 	overflow-y: scroll;
-	max-height: 400px;
+	max-height: inherit;
 	
+}
+
+div.scrolley.container-fluid {
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 
@@ -69,13 +75,38 @@ button {
 
 }
 
-h1, a.navbar-brand, a.nav-link {
+h1, h2, a.navbar-brand, a.nav-link {
 	font-family: Garamond, serif;
 }
 
 .container {
 	max-width: 900px;
 }
+
+.smaller {
+	max-width: inherit;
+}
+
+div.row.container.smaller {
+	flex-wrap: none;
+	margin-left: 0px;
+	margin-right: 0px;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	padding: 0px;
+}
+
+div.col-md-2 p {
+	padding: 0px;
+	text-align: left;
+}
+
+div.col-md-2 p, div.col-md-8 p {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
 
 h1.center {
 	margin-right: auto;
@@ -143,3 +174,7 @@ div.card-body {
 	padding-top: 25px;
 }
 
+.shrinktocontent {
+	max-width: max-content;
+	min-width: min-content;
+}
