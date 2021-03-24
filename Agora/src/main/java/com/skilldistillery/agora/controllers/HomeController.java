@@ -1,5 +1,7 @@
 package com.skilldistillery.agora.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.skilldistillery.agora.dao.InventoryDAO;
+import com.skilldistillery.agora.dao.SearchDao;
 import com.skilldistillery.agora.dao.UserDAO;
 import com.skilldistillery.agora.entities.Address;
+import com.skilldistillery.agora.entities.Product;
 import com.skilldistillery.agora.entities.User;
 
 @Controller
@@ -16,14 +21,24 @@ public class HomeController {
 
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
+	private InventoryDAO dao;
+	@Autowired
+	private SearchDao search;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("user");
-		if (user != null) {
+		if (user!=null) {
 			session.setAttribute("user", user);
-			return "views/profile";
+			model.addAttribute("firstName", user.getFirstName());
+			List<Object[]> inventory = dao.getAllInventory();
+			model.addAttribute("inventory", inventory);
+			List<Product> products = search.findAll();
+			model.addAttribute("displayAll", products);
+			return "views/profile";			
 		}
+		
 		return "index";
 	}
 	
@@ -52,7 +67,7 @@ public class HomeController {
 
 		if (user != null) {
 			session.setAttribute("user", user);
-			return "views/profile";
+			return "redirect:home.do";
 		} else {
 			return "index";
 		}

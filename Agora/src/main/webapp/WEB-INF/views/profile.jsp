@@ -48,11 +48,11 @@
 <ul class="navbar-nav mr-auto">
 
 	<li class="nav-item">
-        <a class="nav-link" href="inventory.do">Inventory.do</a>
+        <a class="nav-link" href="inventory.do">All Inventory</a>
     </li>
 
 	<li class="nav-item">
-        <a class="nav-link" href="findAllProd.do">findAllProd.do</a>
+        <a class="nav-link" href="findAllProd.do">Product Catalog</a>
     </li>
     <!--  
     <form action="addProduct.do" method="GET">
@@ -78,8 +78,38 @@
 </nav>
 
 <div class="container-fluid bgimage text-center">
+<div class="transbox center margt15">
+<h3>Welcome Back, ${firstName}!</h3>
+</div>
 
-<div class="transbox center">
+<div class="transbox center margt15">
+<div class="scrolley container-fluid">
+
+	<h2>Seller Inventory</h2>
+	
+	
+	<c:forEach var="i" items="${inventory}">
+	
+		<div class="row container smaller">	
+			<div class="col-md-2 d-flex align-items-center"><p>${i.id}: ${i.name}</p></div>
+			<div class="col-md-8 d-flex align-items-center"><p>${i.description}</p></div>
+			<div class="col-md-2 d-flex align-items-center">
+
+				<form action=addToCart.do method="GET">
+					<input type="hidden" name="id" value="${i.id}">
+					<button class="btn" type="submit">Add To Cart</button>
+				</form>
+
+			</div>		
+		</div>
+		
+	</c:forEach>	
+	
+	</div>
+
+
+</div>
+<div class="transbox center margt1515">
 <div class="scrolley container-fluid">
 
 	<h2>Available Inventory</h2>
@@ -103,40 +133,10 @@
 	</c:forEach>	
 	
 	</div>
-<!--  
-<div>
-	<form action="inventory.do" method="GET">
-	  <button type="submit" value="submit">Your Inventory</button>
-	</form>
-</div>
--->
-<!--  
-<div>
-	<h3>Search Products by ID</h3>
-	<form action="findProdById.do" method="GET">
-	 <input type="text" name="pid"/> 
-	  <button type="submit" value="submit">Search</button>
-	</form>
-</div>
--->
-<!--  
-<div>
-	<h3>Search Products by Keyword</h3>
-	<form action="findProdByKW.do" method="GET">
-	 <input type="text" name="keywordSearch"/> 
-	  <button type="submit" value="submit">Search</button>
-	</form>
-</div>
--->
-<!--  
-<div>
-	<form action="findAllProd.do" method="GET">
-	  <button type="submit" value="submit">Browse All</button>
-	</form>
-</div>
--->
+
 
 </div>
+
 </div>
 </div>
 <div class="container footer text-center">

@@ -49,11 +49,11 @@
 <ul class="navbar-nav mr-auto">
 
 	<li class="nav-item">
-        <a class="nav-link" href="inventory.do">Inventory.do</a>
+        <a class="nav-link" href="inventory.do">All Inventory</a>
     </li>
 
 	<li class="nav-item">
-        <a class="nav-link" href="findAllProd.do">findAllProd.do</a>
+        <a class="nav-link" href="findAllProd.do">Product Catalog</a>
     </li>
     <!--  
     <form action="addProduct.do" method="GET">
