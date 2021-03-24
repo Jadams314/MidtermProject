@@ -23,6 +23,7 @@
 		<c:forEach var="p" items="${paidfor}">
 			<tr>
 				<td>${p.id}</td>
+				<td><img src="${p.product.productImgUrl}" alt="A product" width="100" height="100"></td>
 				<td>${p.name}</td>
 				<td>${p.description}</td>
 				<td>${p.price}</td>

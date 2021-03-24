@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,11 +20,11 @@
 	<th>Price</th>
 	</thead>
 	<tbody>
-		<c:forEach var="p" items="${paidfor}">
+		<c:forEach var="p" items="${cart}">
 			<tr>
-				<td>${p}</td>
-				<td></td>
-				<td></td>
+				<td><img src="${p.product.productImgUrl}" alt="A product" width="100" height="100"></td>
+				<td>${p.name}</td>
+				<td>${p.price}</td>
 			</tr>	
 		</c:forEach>
 	</tbody>
