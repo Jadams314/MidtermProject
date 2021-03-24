@@ -54,9 +54,13 @@
 	<li class="nav-item">
         <a class="nav-link" href="findAllProd.do">findAllProd.do</a>
     </li>
-
+    <!--  
+    <form action="addProduct.do" method="GET">
+	  <button type="submit" value="submit">Sell Something</button>
+	</form>
+	-->
 	<li class="nav-item">
-        <a class="nav-link" href="findAllProd.do">[sell.do]</a>
+        <a class="nav-link" href="addProduct.do">Sell</a>
     </li>
 
 	<li class="nav-item">
@@ -164,11 +168,7 @@ Tincidunt ornare massa eget egestas purus. Viverra orci sagittis eu volutpat.
 	</form>
 </div>
 -->
-<div>
-	<form action="addProduct.do" method="GET">
-	  <button type="submit" value="submit">Sell Something</button>
-	</form>
-</div>
+
 </div>
 </div>
 </div>
