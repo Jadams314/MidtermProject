@@ -11,6 +11,7 @@
 <h1>Product details:</h1>
 <div>
   <h5>${product.name} (${product.creationDate})</h5>
+  <p> <img alt="" src="${product.productImgUrl}">  </p>
   <p> ${product.description}</p>
   	<form action="addProductInventory.do" method="POST">
 			<input type="hidden" name="id" value="${product.id}">

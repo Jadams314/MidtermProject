@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.agora.dao.CartDAO;
 import com.skilldistillery.agora.entities.Inventory;
@@ -54,13 +55,27 @@ public class CartController {
 		User user = (User) session.getAttribute("user");
 
 		if (user != null) {
-			item =	dao.addToCart(user, item);
+			
+			
+			// Checking if item is already in the cart
 			ShoppingCart cart = dao.getShoppingCart(user);
 			List<Purchase> list = cart.getPurchases();
+			for (Purchase purchase : list) {
+				if(purchase.getInventory().getId() == item.getId()) {
+					System.out.println("*************************** 2 OF THE SAME *********************************");
+					return "views/profile";
+				}
+			}
+			
+			
+			// if item is not in the cart add here
+			item =	dao.addToCart(user, item);
+			cart = dao.getShoppingCart(user);
+			list = cart.getPurchases();
 			List<Inventory> items = new ArrayList<>();
 
-			for (Purchase purchase : list) {
-				items.add(purchase.getInventory());
+			for (Purchase purchase2 : list) {
+				items.add(purchase2.getInventory());
 			}
 			model.addAttribute("cart", items);
 			return "views/shoppingCart";
@@ -74,7 +89,7 @@ public class CartController {
 	public String removeFromCart(HttpSession session, Inventory item, Model model) {
 		User user = (User) session.getAttribute("user");
 		if (user != null) {
-			dao.removeFromCart(user, item);
+			item = dao.removeFromCart(user, item);
 			ShoppingCart cart = dao.getShoppingCart(user);
 			List<Purchase> list = cart.getPurchases();
 			List<Inventory> items = new ArrayList<>();
@@ -120,5 +135,28 @@ public class CartController {
 			return "index";
 
 		}
+	}
+	
+	@RequestMapping(path = "redirInventory.do")
+	public String redirInventory() {
+		return "views/inventory";
+		
+	}
+	@RequestMapping(path = "payment.do")
+	public String payment(Model model, HttpSession session, double total, int count) {
+		User user = (User) session.getAttribute("user");
+//		List<Inventory> paid = new ArrayList<>(paidfor);
+		ShoppingCart cart = dao.getShoppingCart(user);
+//		cart.getPurchases();
+		if(user != null) {
+		
+		model.addAttribute("paidfor", cart.getPurchases());
+		model.addAttribute("total", total);
+		model.addAttribute("count", count);
+		
+		return "views/receipt";
+	
+		}
+		else {return "index";}
 	}
 }
