@@ -62,8 +62,7 @@ public class CartDAOImpl implements CartDAO {
 		
 		for (Purchase result : purchase) {
 			if (result.getInventory().getId() == item.getId()) {
-				sc.removePurchase(result);
-				em.persist(sc);
+				em.remove(result);
 			}
 		}
 		
