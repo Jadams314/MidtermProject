@@ -55,9 +55,13 @@
 	<li class="nav-item">
         <a class="nav-link" href="findAllProd.do">findAllProd.do</a>
     </li>
-
+    <!--  
+    <form action="addProduct.do" method="GET">
+	  <button type="submit" value="submit">Sell Something</button>
+	</form>
+	-->
 	<li class="nav-item">
-        <a class="nav-link" href="findAllProd.do">[sell.do]</a>
+        <a class="nav-link" href="addProduct.do">Sell</a>
     </li>
 
 	<li class="nav-item">
@@ -79,7 +83,7 @@
 <div class="transbox center">
 	<div class="scrolley container-fluid">
 
-	<h2>Inventory List</h2>
+	<h2>Available Inventory</h2>
 	
 	
 	<c:forEach var="i" items="${inventory}">
