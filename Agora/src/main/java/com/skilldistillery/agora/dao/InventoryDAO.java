@@ -9,4 +9,5 @@ public interface InventoryDAO {
 	
 	public List<Object[]> getAllInventory();
 	public void addProduct(User user, Product product);
+	public void addToInventory(User user, Product product);
 }

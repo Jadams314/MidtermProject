@@ -58,4 +58,16 @@ public class ProductController {
 		}
 		
 	}
+	@RequestMapping(path = "addProductInventory.do")
+	public String addToInventory(Model model, HttpSession session, Product product) {
+		User user = (User) session.getAttribute("user");
+		dao.addToInventory(user, product);
+		if (user != null) {
+			session.setAttribute("user", user);
+			return "views/product";
+		} else {
+			return "index";
+		}
+		
+	}
 }

@@ -41,4 +41,14 @@ public class InventoryDAOImpl implements InventoryDAO {
 		
 	}
 
+
+	@Override
+	public void addToInventory(User user, Product product) {
+		Inventory item = new Inventory();
+		
+		item.setProduct(product);
+		item.setAvailable(true);
+		em.persist(item);
+	}
+
 }
