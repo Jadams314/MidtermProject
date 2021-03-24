@@ -75,7 +75,7 @@ button {
 
 }
 
-h1, h2, a.navbar-brand, a.nav-link {
+h1, h2, h3, a.navbar-brand, a.nav-link {
 	font-family: Garamond, serif;
 }
 
@@ -132,7 +132,7 @@ div.container.center {
 	padding: 0px;
 }
 
-a.nav-link.lmarg {
+a.nav-link {
 	margin-left: 10px!important;
 	margin-right: 10px!important;
 }
@@ -159,7 +159,18 @@ div.row.align-items-center.remember {
 	margin-right: 0px;
 	margin-top: -5px;
 	margin-bottom: 10px;
+}
 
+.margt15 {
+	max-height: 250px;
+	margin-top: 15px;
+	margin-bottom: 0px;
+}
+
+.margt1515 {
+	max-height: 250px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 input[type='checkbox'] {
