@@ -3,12 +3,25 @@
 	background-position: center;
   	background-repeat: no-repeat;
   	background-size: cover;
+  	max-height: 600px;
 }
 .background2 { 
 	background: url(resources/images/agora.jpg);
 	background-position: center;
   	background-repeat: no-repeat;
   	background-size: cover;
+}
+
+div.row {
+	border: 1px;
+	border-style: solid;
+	border-color: black;
+}
+
+div.container.footer {
+	border: 1px;
+	border-style: solid;
+	border-color: black;
 }
 
 h3 {
@@ -21,7 +34,26 @@ h3 {
   margin-bottom: 40px;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 5px;
-  display: inline-block
+  display: inline-block;
+
+}
+
+div.scrolley {
+	overflow-y: scroll;
+	max-height: 400px;
+	
+}
+
+
+a.nav-link {
+	font-size: larger;
+	color: white!important;
+	padding-left: 5px!important;
+	padding-right: 5px!important;
+}
+a.nav-link:hover {
+	font-size: larger;
+	color: #4287f5!important;
 }
 
 .center, li.nav-item {
@@ -42,5 +74,37 @@ h1, a.navbar-brand, a.nav-link {
 }
 
 .container {
-	max-width: 800px;
+	max-width: 900px;
+}
+
+h1.center {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+h3.center,  button.navbar-toggler{
+	margin-right: auto;
+	margin-left: auto;
+}
+input {
+	min-width: 200px;
+}
+
+div.container.center {
+	padding: 0px;
+}
+
+a.nav-link.lmarg {
+	margin-left: 10px!important;
+	margin-right: 10px!important;
+}
+
+div.transbox.center {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+h6{
+	margin-top: 3px;
+	margin-bottom: 3px;
 }
