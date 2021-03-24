@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.agora.dao.CartDAO;
 import com.skilldistillery.agora.entities.Inventory;
@@ -127,15 +126,23 @@ public class CartController {
 	public String payment(Model model, HttpSession session, double total, int count) {
 		User user = (User) session.getAttribute("user");
 //		List<Inventory> paid = new ArrayList<>(paidfor);
-		ShoppingCart cart = dao.getShoppingCart(user);
+//		ShoppingCart cart = dao.getShoppingCart(user);
 //		cart.getPurchases();
 		if(user != null) {
+		ShoppingCart cart = dao.getShoppingCart(user);
+		List<Purchase> list = cart.getPurchases();
+		List<Inventory> items = new ArrayList<>();
+
+		for (Purchase purchase : list) {
+			items.add(purchase.getInventory());
+		}
+		model.addAttribute("cart", items);
+//		items.get(0).getProduct().getProductImgUrl()
+//			model.addAttribute("paidfor", cart);
+			model.addAttribute("total", total);
+			model.addAttribute("count", count);
 		
-		model.addAttribute("paidfor", cart.getPurchases());
-		model.addAttribute("total", total);
-		model.addAttribute("count", count);
-		
-		return "views/receipt";
+			return "views/receipt";
 	
 		}
 		else {return "index";}
