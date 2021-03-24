@@ -56,13 +56,13 @@ public class CartController {
 		if (user != null) {
 			item =	dao.addToCart(user, item);
 			ShoppingCart cart = dao.getShoppingCart(user);
-			//List<Purchase> list = cart.getPurchases();
-			//List<Inventory> items = new ArrayList<>();
+			List<Purchase> list = cart.getPurchases();
+			List<Inventory> items = new ArrayList<>();
 
-//			for (Purchase purchase : list) {
-//				items.add(purchase.getInventory());
-//			}
-			model.addAttribute("cart", cart);
+			for (Purchase purchase : list) {
+				items.add(purchase.getInventory());
+			}
+			model.addAttribute("cart", items);
 			return "views/shoppingCart";
 		} else {
 			return "index";
