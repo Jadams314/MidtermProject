@@ -87,4 +87,42 @@ public class CartController {
 		}
 		return "index";
 	}
+	
+	
+	
+	
+	
+	@RequestMapping(path = "checkout.do")
+	public String checkout(Model model, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		
+		if(user != null) {
+		double total = 0.0;
+		int itemCount = 0;
+		ShoppingCart cart = dao.getShoppingCart(user);
+		
+//		cart.setPurchased(true);
+
+		List<Purchase> list	= cart.getPurchases();
+		List<Inventory> items = new ArrayList<>();
+		
+		for (Purchase purchase : list) {
+			purchase.getInventory().setAvailable(false);
+			items.add(purchase.getInventory());
+			total += purchase.getInventory().getPrice();
+			itemCount ++;
+		}
+
+			//set model for list of paid for items
+			model.addAttribute("paidfor", items);
+			model.addAttribute("totalCost", total);
+			model.addAttribute("count", itemCount);
+			return "views/checkout";
+		}
+		//if user has no session return home
+		else {
+			return "index";
+			
+			}
+	}
 }
