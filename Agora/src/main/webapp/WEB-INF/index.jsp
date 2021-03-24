@@ -12,17 +12,28 @@
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/main.css" type="text/css">
-<title>Agora</title>
+<title>Agora Login</title>
 </head>
 <body>
 
-<div class="header text-center">
-<h1>Welcome to Agora</h1>
+<div class="container header text-center">
+
+<div class="row">
+
+
+
+<div class="column center">
+<h1 class="center">Welcome to Agora</h1>
 </div>
 
-<div class="container-fluid bgimage" >
 
-	<div>	
+
+</div>
+</div>
+
+<div class="container center" >
+
+	<div class="container-fluid bgimage text-center">	
 	
 		<div class="d-flex justify-content-center h-100" margin = center>
 			<div class="card">
@@ -48,19 +59,22 @@
 							<input type="checkbox">Remember Me
 						</div>
 						<div class="form-group">
-							<input type="submit" value="Login" class="btn float-right login_btn">
+							<input type="submit" value="Login" class="btn center login_btn">
 						</div>
 					</form>
 				
 				</div>
 				<div class="card-footer">
 					<div class="d-flex justify-content-center links">
-						Don't have an account?<a href="register.do"> Sign Up</a>
+						Don't have an account? &nbsp;<a href="register.do"> Sign Up</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+<div class="container footer text-center">
+<h6>&#169 2021 Ghoul Squad Gulag, All Rights Reserved.</h6>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

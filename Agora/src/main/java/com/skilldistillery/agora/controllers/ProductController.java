@@ -35,4 +35,39 @@ public class ProductController {
 		}
 	
 	}
+	@RequestMapping(path = "addProduct.do")
+	public String addProduct(Model model, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		if (user != null) {
+			session.setAttribute("user", user);
+			return "views/addProduct";
+		} else {
+			return "index";
+		}
+		
+	}
+	@RequestMapping(path = "registerproduct.do")
+	public String registerProduct(Model model, HttpSession session, Product product) {
+		User user = (User) session.getAttribute("user");
+		dao.addProduct(user, product);
+		if (user != null) {
+			session.setAttribute("user", user);
+			return "views/product";
+		} else {
+			return "index";
+		}
+		
+	}
+	@RequestMapping(path = "addProductInventory.do")
+	public String addToInventory(Model model, HttpSession session, Product product) {
+		User user = (User) session.getAttribute("user");
+		dao.addToInventory(user, product);
+		if (user != null) {
+			session.setAttribute("user", user);
+			return "views/product";
+		} else {
+			return "index";
+		}
+		
+	}
 }
