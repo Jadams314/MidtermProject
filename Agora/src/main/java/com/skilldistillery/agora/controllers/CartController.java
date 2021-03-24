@@ -65,9 +65,9 @@ public class CartController {
 			}
 			model.addAttribute("cart", items);
 			return "views/shoppingCart";
-		}else {
-			return "index";
-		}
+			} else {
+				return "index";
+			}
 		
 	}
 	@RequestMapping(path= "removeFromCart.do")
