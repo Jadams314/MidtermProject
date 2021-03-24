@@ -14,17 +14,17 @@
 <h1>Shopping Cart</h1>
 <a href = "home.do">Home</a>
 
- 	<c:forEach var="i" items="${cart}">
-		<p>${i.id}: ${i.name}<br>${i.description}
+ 	<c:forEach var="p" items="${cart.purchases}">
+		<p>${p.inventory.id}: ${p.inventory.name}<br>${p.inventory.description}
 		<form action="removeFromCart.do" method="GET">
-			<input type="hidden" name="id" value="${i.id}">
+			<input type="hidden" name="id" value="${p.id}">
 			<button class="btn" type="submit">Remove from Cart</button>
 		</form>
 		</p>
 	</c:forEach>
 
 		<form action="checkout.do" method="GET">
-			<input type="hidden" name="id" value="${i.id}">
+			<input type="hidden" name="id" value="${p.id}">
 			<button class="btn" type="submit">checkout</button>
 		</form>
 
