@@ -114,4 +114,32 @@ div.transbox.center {
 h6{
 	margin-top: 3px;
 	margin-bottom: 3px;
+	font-size: smaller;
 }
+
+div.card {
+	margin-top: 25px;
+	margin-bottom: 25px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+div.row.align-items-center.remember {
+	border: none;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: -5px;
+	margin-bottom: 10px;
+
+}
+
+input[type='checkbox'] {
+	min-width: 0px;
+}
+input.btn.login_btn {
+	min-width: 150px;
+}
+
+div.card-body {
+	padding-bottom: 5px;
+	padding-top: 25px;
+}
+
