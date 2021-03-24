@@ -12,9 +12,10 @@
 <div>
   <h5>${product.name} (${product.creationDate})</h5>
   <p> ${product.description}</p>
-  <form action=addProductInventory.do method="GET">
-			<input type="hidden" name="id" value="${p.id}">
+  	<form action="addProductInventory.do" method="POST">
+			<input type="hidden" name="id" value="${product.id}">
 			<button class="btn" type="submit">Is this available?</button>
+		</form>
 </div>
 
 </body>
