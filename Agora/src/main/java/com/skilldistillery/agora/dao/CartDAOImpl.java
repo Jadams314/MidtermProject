@@ -65,7 +65,7 @@ public class CartDAOImpl implements CartDAO {
 				em.remove(result);
 			}
 		}
-		
+
 	}
 
 }

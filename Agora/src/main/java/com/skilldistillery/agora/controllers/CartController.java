@@ -22,6 +22,14 @@ public class CartController {
 	@Autowired
 	private CartDAO dao;
 	
+	
+	/*
+	 * In order to display items in the cart we must get a list of purchases from the cart
+	 * which hold the items in inventory. Then iterate through the list of purchase and get 
+	 * the item out and add it to a new list of Inventory items. Last we pass the list of inventory
+	 * items to the jsp.
+	 */
+	
 	@RequestMapping(path= "viewCart.do")
 	public String viewCart(HttpSession session, Model model) {
 		User user = (User) session.getAttribute("user");
