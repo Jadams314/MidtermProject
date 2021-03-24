@@ -86,6 +86,13 @@ h3.center,  button.navbar-toggler{
 	margin-right: auto;
 	margin-left: auto;
 }
+
+.center {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
 input {
 	min-width: 200px;
 }

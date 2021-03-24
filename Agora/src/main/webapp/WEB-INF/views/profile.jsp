@@ -63,14 +63,11 @@
 
 </ul>
 
-
+	
 	<form action="findProdByKW.do" method="GET">
-	
-	
 	 <input type="text" placeholder="Search Products" name="keywordSearch"/> 
 	  <button type="submit" value="submit">Search</button>
 	</form>
- 
 </div>
 </nav>
 
