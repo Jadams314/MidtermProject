@@ -1,60 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Product By ID</title>
+<title>Product Details</title>
 </head>
 <body>
-<!--Products By ID-->
-	<h1>Products:</h1>
-	<div>
-		<h5>${product.name}(${product.id})</h5>
-		<p>${product.description}</p>
-	</div>
-<!--Products By ID-->
 
-	
-<!--Display all Products-->		
-<%-- 	<h5>${displayAll}</h5> --%>
-	<table class="table">
-		<thead class="table">
-			<th>ID</th>
-			<th>Name</th>
-			<th>Description</th>
-		</thead>
-		<tbody>
-			<c:forEach var="p" items="${displayAll}">
-				<tr>
-					<td>${p.id}</td>
-					<td>${p.name}</td>
-					<td>${p.description }</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-<!--Display all Products-->		
+<h1>Product details:</h1>
+<div>
+  <h5>${product.name} (${product.creationDate})</h5>
+  <p> ${product.description}</p>
+  <form action=addProductInventory.do method="GET">
+			<input type="hidden" name="id" value="${p.id}">
+			<button class="btn" type="submit">Is this available?</button>
+</div>
 
-<!--Products By keyword-->		
-	<table class="table">
-		<thead class="table">
-			<th>ID</th>
-			<th>Name</th>
-			<th>Description</th>
-		</thead>
-		<tbody>
-			<c:forEach var="p" items="${keywordSearch}">
-				<tr>
-					<td>${p.id}</td>
-					<td>${p.name}</td>
-					<td>${p.description }</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-<!--Products By keyword-->		
 </body>
 </html>

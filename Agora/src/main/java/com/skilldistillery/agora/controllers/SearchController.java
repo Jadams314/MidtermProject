@@ -29,7 +29,7 @@ public class SearchController {
 
 		if (user != null) {
 			session.setAttribute("user", user);
-			return "views/product";
+			return "views/productList";
 		} else {
 			return "index";
 		}
@@ -58,9 +58,22 @@ public class SearchController {
 
 		if (user != null) {
 			session.setAttribute("user", user);
-			return "views/product";
+			return "views/productList";
 		} else {
 			return "index";
 		}
+		}
+		@RequestMapping(path = "displayProduct.do")
+		public String displayProduct(int pid, Model model, HttpSession session) {
+			Product product = search.findById(pid);
+			model.addAttribute("product", product);
+			User user = (User) session.getAttribute("user");
+			
+			if (user != null) {
+				session.setAttribute("user", user);
+				return "views/product";
+			} else {
+				return "index";
+			}
 	}
 }
