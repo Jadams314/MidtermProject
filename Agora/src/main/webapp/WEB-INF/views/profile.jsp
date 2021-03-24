@@ -162,6 +162,11 @@ Tincidunt ornare massa eget egestas purus. Viverra orci sagittis eu volutpat.
 	</form>
 </div>
 -->
+<div>
+	<form action="addProduct.do" method="GET">
+	  <button type="submit" value="submit">Sell Something</button>
+	</form>
+</div>
 </div>
 </div>
 </div>

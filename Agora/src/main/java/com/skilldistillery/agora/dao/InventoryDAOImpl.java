@@ -1,5 +1,6 @@
 package com.skilldistillery.agora.dao;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,6 +10,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.agora.entities.Inventory;
+import com.skilldistillery.agora.entities.Product;
+import com.skilldistillery.agora.entities.User;
 
 @Service
 @Transactional
@@ -26,6 +29,15 @@ public class InventoryDAOImpl implements InventoryDAO {
 				.getResultList();
 		
 		return results;
+		
+	}
+
+
+	@Override
+	public void addProduct(User user, Product product) {
+		product.setSeller(user);
+		product.setCreationDate(LocalDateTime.now());
+		em.persist(product);
 		
 	}
 
