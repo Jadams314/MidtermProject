@@ -80,62 +80,29 @@
 <div class="container-fluid bgimage text-center">
 
 <div class="transbox center">
-<div class="scrolley">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-tempor incididunt ut labore et dolore magna aliqua. Porta nibh venenatis cras 
-sed felis eget velit aliquet sagittis. Leo urna molestie at elementum eu 
-facilisis. Id aliquet lectus proin nibh nisl condimentum id. At elementum eu 
-facilisis sed odio morbi. Magna etiam tempor orci eu lobortis elementum nibh 
-tellus molestie. Id porta nibh venenatis cras sed felis eget velit aliquet. 
-Tristique senectus et netus et. Amet nulla facilisi morbi tempus iaculis 
-urna id volutpat. Hendrerit gravida rutrum quisque non tellus orci ac auctor. 
-Tincidunt ornare massa eget egestas purus. Viverra orci sagittis eu volutpat.
- Luctus accumsan tortor posuere ac ut consequat semper viverra. Eleifend 
- donec pretium vulputate sapien. Donec pretium vulputate sapien nec sagittis 
- aliquam malesuada. Neque vitae tempus quam pellentesque nec nam aliquam 
- sem et. Pellentesque diam volutpat commodo sed egestas egestas fringilla 
- phasellus. 
- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-tempor incididunt ut labore et dolore magna aliqua. Porta nibh venenatis cras 
-sed felis eget velit aliquet sagittis. Leo urna molestie at elementum eu 
-facilisis. Id aliquet lectus proin nibh nisl condimentum id. At elementum eu 
-facilisis sed odio morbi. Magna etiam tempor orci eu lobortis elementum nibh 
-tellus molestie. Id porta nibh venenatis cras sed felis eget velit aliquet. 
-Tristique senectus et netus et. Amet nulla facilisi morbi tempus iaculis 
-urna id volutpat. Hendrerit gravida rutrum quisque non tellus orci ac auctor. 
-Tincidunt ornare massa eget egestas purus. Viverra orci sagittis eu volutpat.
- Luctus accumsan tortor posuere ac ut consequat semper viverra. Eleifend 
- donec pretium vulputate sapien. Donec pretium vulputate sapien nec sagittis 
- aliquam malesuada. Neque vitae tempus quam pellentesque nec nam aliquam 
- sem et. Pellentesque diam volutpat commodo sed egestas egestas fringilla 
- phasellus. 
- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-tempor incididunt ut labore et dolore magna aliqua. Porta nibh venenatis cras 
-sed felis eget velit aliquet sagittis. Leo urna molestie at elementum eu 
-facilisis. Id aliquet lectus proin nibh nisl condimentum id. At elementum eu 
-facilisis sed odio morbi. Magna etiam tempor orci eu lobortis elementum nibh 
-tellus molestie. Id porta nibh venenatis cras sed felis eget velit aliquet. 
-Tristique senectus et netus et. Amet nulla facilisi morbi tempus iaculis 
-urna id volutpat. Hendrerit gravida rutrum quisque non tellus orci ac auctor. 
-Tincidunt ornare massa eget egestas purus. Viverra orci sagittis eu volutpat.
- Luctus accumsan tortor posuere ac ut consequat semper viverra. Eleifend 
- donec pretium vulputate sapien. Donec pretium vulputate sapien nec sagittis 
- aliquam malesuada. Neque vitae tempus quam pellentesque nec nam aliquam 
- sem et. Pellentesque diam volutpat commodo sed egestas egestas fringilla 
- phasellus. 
- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-tempor incididunt ut labore et dolore magna aliqua. Porta nibh venenatis cras 
-sed felis eget velit aliquet sagittis. Leo urna molestie at elementum eu 
-facilisis. Id aliquet lectus proin nibh nisl condimentum id. At elementum eu 
-facilisis sed odio morbi. Magna etiam tempor orci eu lobortis elementum nibh 
-tellus molestie. Id porta nibh venenatis cras sed felis eget velit aliquet. 
-Tristique senectus et netus et. Amet nulla facilisi morbi tempus iaculis 
-urna id volutpat. Hendrerit gravida rutrum quisque non tellus orci ac auctor. 
-Tincidunt ornare massa eget egestas purus. Viverra orci sagittis eu volutpat.
- Luctus accumsan tortor posuere ac ut consequat semper viverra. Eleifend 
- donec pretium vulputate sapien. Donec pretium vulputate sapien nec sagittis 
- aliquam malesuada. Neque vitae tempus quam pellentesque nec nam aliquam 
- sem et. Pellentesque diam volutpat commodo sed egestas egestas fringilla 
- phasellus. </div>
+<div class="scrolley container-fluid">
+
+	<h2>Available Inventory</h2>
+	
+	
+	<c:forEach var="i" items="${inventory}">
+	
+		<div class="row container smaller">	
+			<div class="col-md-2 d-flex align-items-center"><p>${i.id}: ${i.name}</p></div>
+			<div class="col-md-8 d-flex align-items-center"><p>${i.description}</p></div>
+			<div class="col-md-2 d-flex align-items-center">
+
+				<form action=addToCart.do method="GET">
+					<input type="hidden" name="id" value="${i.id}">
+					<button class="btn" type="submit">Add To Cart</button>
+				</form>
+
+			</div>		
+		</div>
+		
+	</c:forEach>	
+	
+	</div>
 <!--  
 <div>
 	<form action="inventory.do" method="GET">
