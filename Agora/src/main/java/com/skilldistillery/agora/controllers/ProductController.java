@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.agora.dao.InventoryDAO;
+import com.skilldistillery.agora.dao.SearchDao;
 import com.skilldistillery.agora.entities.Product;
 import com.skilldistillery.agora.entities.User;
 
@@ -59,12 +60,15 @@ public class ProductController {
 		
 	}
 	@RequestMapping(path = "addProductInventory.do")
-	public String addToInventory(Model model, HttpSession session, Product product) {
+	public String addToInventory(Model model, HttpSession session, int id) {
+		Product product = dao.findProduct(id);
 		User user = (User) session.getAttribute("user");
+		System.out.println("************* In CONTORLLER**************" + product);
 		dao.addToInventory(user, product);
 		if (user != null) {
 			session.setAttribute("user", user);
-			return "views/product";
+			//TODO set up the return page
+			return "views/profile";
 		} else {
 			return "index";
 		}

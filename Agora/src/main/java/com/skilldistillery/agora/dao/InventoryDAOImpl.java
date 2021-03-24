@@ -45,10 +45,22 @@ public class InventoryDAOImpl implements InventoryDAO {
 	@Override
 	public void addToInventory(User user, Product product) {
 		Inventory item = new Inventory();
+	System.out.println("*********** IN IMPL ***********" + product.getName());
 		
+		
+		item.setName(product.getName());
+		item.setDescription(product.getDescription());
+		item.setPrice(product.getPrice());
 		item.setProduct(product);
 		item.setAvailable(true);
 		em.persist(item);
+	}
+
+
+	@Override
+	public Product findProduct(int id) {
+		Product product = em.find(Product.class, id);
+		return product;
 	}
 
 }
