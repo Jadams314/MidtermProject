@@ -12,7 +12,7 @@ public interface CartDAO {
 	
 	Inventory addToCart(User user, Inventory item);
 	
-	void removeFromCart(User user, Inventory item);
+	Inventory removeFromCart(User user, Inventory item);
 
 
 }
