@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.agora.dao.CartDAO;
 import com.skilldistillery.agora.entities.Inventory;
@@ -121,4 +122,24 @@ public class CartController {
 
 		}
 	}
+	
+	@RequestMapping(path = "payment.do")
+	public String payment(Model model, HttpSession session, double total, int count) {
+		User user = (User) session.getAttribute("user");
+//		List<Inventory> paid = new ArrayList<>(paidfor);
+		ShoppingCart cart = dao.getShoppingCart(user);
+//		cart.getPurchases();
+		if(user != null) {
+		
+		model.addAttribute("paidfor", cart.getPurchases());
+		model.addAttribute("total", total);
+		model.addAttribute("count", count);
+		
+		return "views/receipt";
+	
+		}
+		else {return "index";}
+	}
+	
+	
 }

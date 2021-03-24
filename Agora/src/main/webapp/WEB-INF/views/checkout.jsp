@@ -31,13 +31,39 @@
 	</tbody>
 		
 	<tfoot>
-		<th>Number of Items: </th>
+		<th>Items: </th>
 		<th>${count}</th>
 		<th>Total</th>
 		<th>${totalCost}</th>
 	</tfoot>
 
 </table>
+
+<h2>Pay With Credit Card</h2>
+	<form action="payment.do" method="POST">
+      <label for="firstName">First Name:</label>
+      <input type="text" name="firstName" required>
+      <br>
+      <label for="lastName">Last Name:</label>
+      <input type="text" name="lastName" required>
+      <br>
+      <label for="zipCode">Zip Code:</label>
+      <input type="text" name="zipCode" required>
+      <br>
+      <label for="password">Credit Card Number:</label>
+      <input type="text" name="creditCard" required>
+      <br>
+      <label for="email">Exp Mo:</label>
+      <input type="text" name="month" required>
+      <br>
+      <label for="street">Exp Yr:</label>
+      <input type="text" name="year" required>
+	  <input type="hidden" name="total" value="${totalCost}">
+	  <input type="hidden" name="paidfor" value="${paidfor}">
+	  <input type="hidden" name="count" value="${count}">
+      <br>
+      <input type="submit" value="CLICK TO PAY">
+    </form>
 
 </body>
 </html>
