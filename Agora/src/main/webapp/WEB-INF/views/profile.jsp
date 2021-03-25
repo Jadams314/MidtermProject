@@ -85,10 +85,12 @@
 <div class="transbox center margt15">
 <div class="scrolley container-fluid">
 
+	
+	
+	
+
 	<h2>Seller Inventory</h2>
-	
-	
-	
+
 	
 	<c:forEach var="p" items="${products}">
 	<c:choose>
