@@ -104,5 +104,11 @@ public class CartDAOImpl implements CartDAO {
 		}
 		
 	}
+	
+	@Override
+	public void removeFromInventory(User user, Inventory item) {
+		item.setAvailable(false);
+		em.persist(item);
+	}
 
 }

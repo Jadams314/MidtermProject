@@ -9,6 +9,7 @@
 <title>Product By ID</title>
 </head>
 <body>
+
 	<!-- Products By ID-->
 	<h1>Products:</h1>
 	<div>
@@ -16,9 +17,6 @@
 		<p>${product.description}</p>
 	</div>
 
-	<!--Products By ID-->
-
-	
 <!--Display all Products-->		
 	<table class="table">
 		<thead class="table">
@@ -32,7 +30,7 @@
 			<c:forEach  var="p" items="${displayAll}">
 				<tr>
 					<td>${p.id}</td>
-					<td><a href="displayProduct.do?pid=${p.id}" style="width: 200px !important; height: 75px !important; border: 0px solid black;"><div style="width: auto; height: auto;"><img src=${p.productImgUrl} width="50%" height="100%" style="margin-left: 50px;"></div></td>
+					<td><a href="displayProduct.do?pid=${p.id}" style="width: 200px; height: 75px; border: 0px solid black;"><div style="width: auto; height: auto;"><img src="${p.productImgUrl}" width="50%" height="100%" style="margin-left: 50px;"></div></td>
 					<td><a href="displayProduct.do?pid=${p.id}">${p.name}</a></td>
 					<td>${p.description }</td>
 				</tr>
@@ -41,23 +39,6 @@
 	</table>
 <!--Display all Products-->		
 
-<!--Products By keyword-->		
-	<table class="table">
-		<thead class="table">
-			<th>ID</th>
-			<th>Name</th>
-			<th>Description</th>
-		</thead>
-		<tbody>
-			<c:forEach var="p" items="${keywordSearch}">
-				<tr>
-					<td>${p.id}</td>
-					<td><a href="displayProduct.do?pid=${p.id}">${p.name}</a></td>
-					<td>${p.description }</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-<!--Products By keyword-->		
+	
 </body>
 </html>

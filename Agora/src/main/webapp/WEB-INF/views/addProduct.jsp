@@ -20,8 +20,8 @@
       <label for="price">Price:</label>
       <input type="text" name="price" required>
       <br>
-      <label for="image">Image URL:</label>
-      <input type="text" name="image" required>
+      <label for="productImgUrl">Image URL:</label>
+      <input type="text" name="productImgUrl" required>
       <br>
       <input type="submit" value="Add">
     </form>
