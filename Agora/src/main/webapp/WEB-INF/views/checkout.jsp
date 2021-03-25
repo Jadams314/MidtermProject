@@ -4,20 +4,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1,
+	shrink-to-fit=no">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/main.css" type="text/css">
 <title>Checkout</title>
 </head>
 <body>
-<h1>THE AGORA CHECKOUT</h1>
-<a href = "home.do">Home</a>
+
+<div class="container header text-center">
+
+<div class="row">
+
+<div class="column">
+<a href="home.do"><img src="/resources/images/home.png" alt="home icon"/></a>
+</div>
+
+<div class="column center">
+<h1 class="center">AGORA CHECKOUT</h1>
+</div>
+
+<div class="column">
+<a href="viewCart.do"><img src="/resources/images/carticon.png" alt="cart icon"/></a>
+</div>
+
+
+<!-- <h1>AGORA CHECKOUT</h1>
+<a href = "home.do">Home</a> -->
 
 <!--Display all items in checkout  -->
 <table class="table">
 	<thead class="table">
-	<th>ID</th>
-	<th>Name</th>
-	<th>Description</th>
-	<th>Price</th>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Price</th>
+	</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="p" items="${paidfor}">
@@ -32,15 +58,19 @@
 	</tbody>
 		
 	<tfoot>
-		<th>Items: </th>
-		<th>${count}</th>
-		<th>Total</th>
-		<th>${totalCost}</th>
+		<tr>
+			<th>Items: </th>
+			<th>${count}</th>
+			<th>Total</th>
+			<th>${totalCost}</th>
+		</tr>
 	</tfoot>
 
 </table>
 
-<h2>Pay With Credit Card</h2>
+<div class="column center">
+<h2 class="center">Pay With Credit Card</h2>
+
 	<form action="payment.do" method="POST">
       <label for="firstName">First Name:</label>
       <input type="text" name="firstName" required>
@@ -51,7 +81,7 @@
       <label for="zipCode">Zip Code:</label>
       <input type="text" name="zipCode" required>
       <br>
-      <label for="password">Credit Card Number:</label>
+      <label for="password">Credit Card #:</label>
       <input type="text" name="creditCard" required>
       <br>
       <label for="email">Exp Mo:</label>
@@ -66,6 +96,9 @@
       <input type="submit" value="CLICK TO PAY">
     </form>
     
+</div>
+</div>
+</div>
 
 </body>
 </html>
