@@ -66,39 +66,25 @@
 			<div class="transbox center">
 				<div class="scrolley container-fluid">
 					<h2>Available Inventory</h2>
-					
-					<!--CHANGED  to Table -->
-					<table class="table">
-					
 					<c:forEach var="i" items="${inventory}">
-					<tbody>
-						<tr>
-<!-- 						<div class="row container smaller"> -->
-<!-- 							<div class="col-md-2 d-flex align-items-center"> -->
-								<td>${i.id}:&nbsp;${i.name}</td>
-<!-- 							</div> -->
-							<!--CHANGED  -->
-<!-- 							<div class="col-md-2 d-flex align-items-center"> -->
-								<td><img src="${i.product.productImgUrl}" alt="product img" width="100" height="100"></td>
-<!-- 							</div> -->
-							<!--END  -->
-							
-<!-- 							<div class="col-md-8 d-flex align-items-center"> -->
-								<td>${i.description}</td>
-<!-- 							</div> -->
-<!-- 							<div class="col-md-2 d-flex align-items-center"> -->
-								<td><form action=addToCart.do method="GET">
+						<div class="row container smaller">
+							<div class="col-md-2 d-flex align-items-center">
+								<p>${i.id}:&nbsp;${i.name}</p>
+							</div>
+							<div class="col-md-2 d-flex align-items-center">
+								<img class ="center" src="${i.product.productImgUrl}">
+							</div>
+							<div class="col-md-6 d-flex align-items-center">
+								<p>${i.description}</p>
+							</div>
+							<div class="col-md-2 d-flex align-items-center">
+								<form action=addToCart.do method="GET">
 									<input type="hidden" name="id" value="${i.id}">
 									<button class="btn" type="submit">Add To Cart</button>
-								</form></td>
-<!-- 							</div> -->
-<!-- 						</div> -->
-						</tr>
-					</tbody>
+								</form>
+							</div>
+						</div>
 					</c:forEach>
-					
-					</table>
-					<!--END  -->
 				</div>
 			</div>
 		</div>
