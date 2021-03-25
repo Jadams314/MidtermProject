@@ -206,3 +206,7 @@ div.card-body {
 	max-width: max-content;
 	min-width: min-content;
 }
+div.row.container.smaller input {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

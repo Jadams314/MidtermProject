@@ -69,7 +69,7 @@
 					<c:forEach var="i" items="${inventory}">
 						<div class="row container smaller">
 							<div class="col-md-2 d-flex align-items-center">
-								<p>${i.id}:${i.name}</p>
+								<p>${i.id}:&nbsp;${i.name}</p>
 							</div>
 							<div class="col-md-8 d-flex align-items-center">
 								<p>${i.description}</p>

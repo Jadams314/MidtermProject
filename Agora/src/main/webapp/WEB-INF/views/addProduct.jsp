@@ -90,15 +90,53 @@
  -->
 				<!--  -->
 				<h2>Add A Product</h2>
-
+				
 				<form action="registerproduct.do" method="POST">
-					<label for="name">Name:</label> <input type="text" name="name"
-						required> <br> <label for="description">Description:</label>
-					<input type="text" name="description" required> <br> <label
-						for="price">Price:</label> <input type="text" name="price"
-						required> <br> <label for="productImgUrl">Image
-						URL:</label> <input type="text" name="productImgUrl" required> <br>
-					<input type="submit" value="Add">
+				
+				<div class="row container smaller">				
+					<div class="col-md-4 d-flex align-items-center">				
+						<label for="name">Name:</label>
+					</div>					
+					<div class="col-md-8 d-flex align-items-center">				
+						<input type="text" name="name" required>
+					</div>
+				</div>
+				
+				
+				<div class="row container smaller">				
+					<div class="col-md-4 d-flex align-items-center">		
+						<label for="description">Description:</label>					
+					</div>				
+					<div class="col-md-8 d-flex align-items-center">				
+						<input type="text" name="description" required>							
+					</div>
+				</div>
+				
+				
+				<div class="row container smaller">				
+					<div class="col-md-4 d-flex align-items-center">		
+						<label for="price">Price:</label>					
+					</div>				
+					<div class="col-md-8 d-flex align-items-center">				
+						<input type="text" name="price"required>							
+					</div>
+				</div>
+				
+				
+				<div class="row container smaller">				
+					<div class="col-md-4 d-flex align-items-center">		
+						<label for="productImgUrl">Image URL:</label>					
+					</div>				
+					<div class="col-md-8 d-flex align-items-center">				
+						<input type="text" name="productImgUrl" required>							
+					</div>
+				</div>
+				
+				
+				<div class="row container smaller">				
+					<button type="submit" class="center" type="submit" value="Add">Add</button>				
+				</div>
+
 				</form>
 			</div>
 		</div>
