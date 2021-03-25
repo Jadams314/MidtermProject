@@ -17,6 +17,10 @@
 			<input type="hidden" name="id" value="${product.id}">
 			<button class="btn" type="submit">Is this available?</button>
 		</form>
+  	<form action="notAvail.do" method="POST">
+			<input type="hidden" name="id" value="${product.id}">
+			<button class="btn" type="submit">Not available?</button>
+		</form>
 </div>
 
 </body>
