@@ -107,7 +107,7 @@
 			</div>	
 				
 			<div class="col-md-2 d-flex align-items-center">
-				<form action="addProductInventory.do" method="POST">
+				<form action="notAvail.do" method="POST">
 				<input type="hidden" name="id" value="${p.id}">
 				<button class="btn" type="submit">[remove]</button>
 				</form>
@@ -129,8 +129,13 @@
 	<h2>All Inventory</h2>
 	
 	
-	<c:forEach var="i" items="${inventory}">
 	
+	<c:forEach var="i" items="${inventory}">
+		
+		<c:choose> 
+		
+		<c:when test="${ i.available eq true }">
+		
 		<div class="row container smaller">	
 			<div class="col-md-2 d-flex align-items-center"><p>${i.id}: ${i.name}</p></div>
 			<div class="col-md-8 d-flex align-items-center"><p>${i.description}</p></div>
@@ -143,6 +148,16 @@
 
 			</div>		
 		</div>
+		
+		
+		</c:when>
+		
+			<c:otherwise>
+		
+		
+			</c:otherwise>
+		
+		</c:choose>
 		
 	</c:forEach>	
 	
