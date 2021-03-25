@@ -13,6 +13,9 @@ public interface CartDAO {
 	Inventory addToCart(User user, Inventory item);
 	
 	Inventory removeFromCart(User user, Inventory item);
+	
+	boolean checkCreditCardInfo(User user, String creditCard, String year, 
+			String month, String firstName, String lastName, String zipCode) ;
 
 
 }

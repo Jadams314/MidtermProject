@@ -8,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.hibernate.type.DateType;
+import org.hibernate.type.LocalDateType;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.agora.entities.Inventory;
@@ -40,7 +42,7 @@ public class CartDAOImpl implements CartDAO {
 			em.persist(sc);
 		}
 		
-		return sc;
+		return sc;		
 	
 	}
 
@@ -70,6 +72,37 @@ public class CartDAOImpl implements CartDAO {
 			}
 		}
 		return item;
+	}
+	
+	public boolean checkCreditCardInfo(User user, String creditCard, String year, 
+			String month, String firstName, String lastName, String zipCode) {
+		int m = Integer.parseInt(month);
+		int y = Integer.parseInt(year);
+		int yearNow = LocalDateTime.now().getYear();
+		
+		//TEST CODE
+//		System.out.println("****************************************************");
+//		System.out.println("creditcard  " + creditCard);
+//		System.out.println("year  " + year + "***" + y);
+//		System.out.println("month  "+ month + "***" + m);
+//		System.out.println("yearNow  " +yearNow);
+//		System.out.println("firstName  " +firstName);
+//		System.out.println("lastName  "+ lastName);
+//		System.out.println("zipCode  "+zipCode);
+//		System.out.println("****************************************************");
+		
+		if(user.getFirstName().equals(firstName) &&
+		   user.getLastName().equals(lastName) &&
+		   user.getAddress().getZipCode().equals(zipCode) &&
+		   (creditCard.length() == 16) && 
+		   ( m > 0 && m < 13) &&
+		   (y > yearNow)) {
+			
+			return true;
+		}else {
+			return false;
+		}
+		
 	}
 
 }
