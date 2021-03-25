@@ -26,7 +26,7 @@ public class ProductController {
 
 	@RequestMapping(path = "inventory.do")
 	public String inventoryList(Model model, HttpSession session) {
-		List<Object[]> inventory = dao.getAllInventory();
+		List<Inventory> inventory = dao.getAllInventoryAsList();
 		model.addAttribute("inventory", inventory);
 		User user = (User) session.getAttribute("user");
 
