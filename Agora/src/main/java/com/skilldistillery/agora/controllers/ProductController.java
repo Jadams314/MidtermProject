@@ -9,10 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.agora.dao.InventoryDAO;
 import com.skilldistillery.agora.dao.SearchDao;
+import com.skilldistillery.agora.entities.Inventory;
 import com.skilldistillery.agora.entities.Product;
 import com.skilldistillery.agora.entities.User;
 
@@ -65,6 +67,29 @@ public class ProductController {
 		User user = (User) session.getAttribute("user");
 		System.out.println("************* In CONTORLLER**************" + product);
 		dao.addToInventory(user, product);
+		if (user != null) {
+			session.setAttribute("user", user);
+			//TODO set up the return page
+			 return "redirect:home.do";
+
+		} else {
+			return "index";
+		}
+		
+	}
+	@RequestMapping(path = "notAvail.do")
+	public String removeFromInventory(Model model, HttpSession session, int id) {
+		Product product = dao.findProduct(id);
+		
+		List <Inventory> list = dao.getAllInventoryAsList();
+		User user = (User) session.getAttribute("user");
+		for (Inventory inventory : list) {
+			if (inventory.getProduct().getId() == id) {
+				Inventory item = inventory;
+				dao.removeFromInventory(user, item);
+				
+			}
+		}
 		if (user != null) {
 			session.setAttribute("user", user);
 			//TODO set up the return page

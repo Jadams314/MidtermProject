@@ -19,35 +19,38 @@ public class InventoryDAOImpl implements InventoryDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
-	
+
 	@Override
 	public List<Object[]> getAllInventory() {
 		String query = "SELECT i FROM Inventory i";
-		
-		List<Object[]> results = em.createQuery(query, Object[].class)
-				.getResultList();
-		
+
+		List<Object[]> results = em.createQuery(query, Object[].class).getResultList();
+
 		return results;
-		
+
 	}
 
+	@Override
+	public List<Inventory> getAllInventoryAsList() {
+		String query = "SELECT i FROM Inventory i";
+		List<Inventory> results = em.createQuery(query, Inventory.class).getResultList();
+		return results;
+
+	}
 
 	@Override
 	public void addProduct(User user, Product product) {
 		product.setSeller(user);
 		product.setCreationDate(LocalDateTime.now());
 		em.persist(product);
-		
-	}
 
+	}
 
 	@Override
 	public void addToInventory(User user, Product product) {
 		Inventory item = new Inventory();
-	System.out.println("*********** IN IMPL ***********" + product.getName());
-		
-		
+		System.out.println("*********** IN IMPL ***********" + product.getName());
+
 		item.setName(product.getName());
 		item.setDescription(product.getDescription());
 		item.setPrice(product.getPrice());
@@ -56,6 +59,18 @@ public class InventoryDAOImpl implements InventoryDAO {
 		em.persist(item);
 	}
 
+	@Override
+	public void removeFromInventory(User user, Inventory item) {
+		item.setAvailable(false);
+		em.persist(item);
+	}
+
+	@Override
+	public Inventory findItem(int id) {
+		Inventory item = em.find(Inventory.class, id);
+		System.out.println("************* In in dao **************" + item);
+		return item;
+	}
 
 	@Override
 	public Product findProduct(int id) {
