@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,45 +16,33 @@
 <title>Available Inventory</title>
 </head>
 <body>
-
 	<div class="container header text-center">
-
 		<div class="row">
-
 			<div class="column">
 				<a href="home.do"><img src="/resources/images/home.png"
 					alt="home icon" /></a>
 			</div>
-
 			<div class="column center">
 				<h1 class="center">Agora</h1>
 			</div>
-
 			<div class="column">
 				<a href="viewCart.do"><img src="/resources/images/carticon.png"
 					alt="cart icon" /></a>
 			</div>
-
 		</div>
 	</div>
-
 	<div class="container center">
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-
 				<ul class="navbar-nav mr-auto">
-
 					<li class="nav-item"><a class="nav-link" href="inventory.do">All
 							Inventory</a></li>
-
 					<li class="nav-item"><a class="nav-link" href="findAllProd.do">Product
 							Catalog</a></li>
 					<!--  
@@ -66,13 +52,9 @@
 	-->
 					<li class="nav-item"><a class="nav-link" href="addProduct.do">Sell</a>
 					</li>
-
 					<li class="nav-item"><a class="nav-link lmarg"
 						href="logout.do">Logout</a></li>
-
 				</ul>
-
-
 				<form action="findProdByKW.do" method="GET">
 					<input type="text" placeholder="Search Products"
 						name="keywordSearch" />
@@ -80,17 +62,11 @@
 				</form>
 			</div>
 		</nav>
-
 		<div class="container-fluid bgimage text-center">
-
 			<div class="transbox center">
 				<div class="scrolley container-fluid">
-
 					<h2>Available Inventory</h2>
-
-
 					<c:forEach var="i" items="${inventory}">
-
 						<div class="row container smaller">
 							<div class="col-md-2 d-flex align-items-center">
 								<p>${i.id}:${i.name}</p>
@@ -99,26 +75,20 @@
 								<p>${i.description}</p>
 							</div>
 							<div class="col-md-2 d-flex align-items-center">
-
 								<form action=addToCart.do method="GET">
 									<input type="hidden" name="id" value="${i.id}">
 									<button class="btn" type="submit">Add To Cart</button>
 								</form>
-
 							</div>
 						</div>
-
 					</c:forEach>
-
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<div class="container footer text-center">
 		<h6>&#169 2021 Ghoul Squad Gulag, All Rights Reserved.</h6>
 	</div>
-
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
