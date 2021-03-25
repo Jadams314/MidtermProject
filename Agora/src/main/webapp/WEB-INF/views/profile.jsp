@@ -85,12 +85,8 @@
 <div class="transbox center margt15">
 <div class="scrolley container-fluid">
 
-	
-	
-	
 
-	<h2>Seller Inventory</h2>
-
+	<h2>Your Products</h2>
 	
 	<c:forEach var="p" items="${products}">
 	<c:choose>
@@ -99,19 +95,19 @@
 		<div class="row container smaller">	
 			<div class="col-md-2 d-flex align-items-center"><p>${p.id}: ${p.name}</p></div>
 			
-			<div class="col-md-7 d-flex align-items-center"><p>${p.description}</p></div>
+			<div class="col-md-6 d-flex align-items-center"><p>${p.description}</p></div>
 			
-			<div class="col-md-1 d-flex align-items-center">
+			<div class="col-md-2 d-flex align-items-center">
 				<form action="addProductInventory.do" method="POST">
 				<input type="hidden" name="id" value="${p.id}">
-				<button class="btn" type="submit">List</button>
+				<button class="btn" type="submit">List for sale</button>
 				</form>
 			</div>	
 				
 			<div class="col-md-2 d-flex align-items-center">
 				<form action="notAvail.do" method="POST">
 				<input type="hidden" name="id" value="${p.id}">
-				<button class="btn" type="submit">Not Available</button>
+				<button class="btn" type="submit">Remove</button>
 				</form>
 			</div>		
 			
@@ -128,9 +124,7 @@
 <div class="transbox center margt1515">
 <div class="scrolley container-fluid">
 
-	<h2>All Inventory</h2>
-	
-	
+	<h2>All Agora Inventory</h2>
 	
 	<c:forEach var="i" items="${inventory}">
 		

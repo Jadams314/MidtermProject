@@ -105,6 +105,18 @@ div.col-md-2 p {
 	text-align: left;
 }
 
+div.col-md-2 a {
+	color: #0d2c9e!important;
+}
+div.col-md-2 a:hover {
+	color: #4287f5!important;
+}
+
+div.col-md-2 img {
+	max-width: 100px;
+	max-height: 100px;
+}
+
 div.col-md-2 p, div.col-md-8 p, div.col-md-7 p {
 	margin-top: 4px;
 	margin-bottom: 4px;
@@ -150,6 +162,8 @@ h6{
 	margin-bottom: 3px;
 	font-size: smaller;
 }
+
+
 
 div.card {
 	margin-top: 25px;
