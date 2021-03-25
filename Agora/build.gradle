@@ -4,6 +4,15 @@ plugins {
 	id 'java'
 }
 
+apply plugin: 'war'
+war {
+  enabled = true
+  // Gradle will replace the variable baseName
+  // with our app name, as defined in settings.gradle
+  archiveName = "${baseName}.war"
+  destinationDir = file("../")         // Project workspace directory
+}
+
 group = 'com.skilldistillery'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
@@ -14,6 +23,8 @@ repositories {
 
 dependencies {
 	compile project (':JPAAgora')
+
+	implementation ('org.springframework.boot:spring-boot-starter-tomcat')
 
 	implementation 'javax.servlet:jstl:1.2'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
