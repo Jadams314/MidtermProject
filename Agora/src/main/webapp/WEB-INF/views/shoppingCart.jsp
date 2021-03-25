@@ -85,7 +85,6 @@
 				<div class="scrolley container-fluid">
 
 					<h1>Shopping Cart</h1>
-					<a href="home.do">Home</a>
 
 					<c:forEach var="i" items="${cart}">
 						<div class="row container smaller">
