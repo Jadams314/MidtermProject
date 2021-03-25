@@ -93,7 +93,7 @@
 	<c:when test="${user.id == p.seller.id}">
 	
 		<div class="row container smaller">	
-			<div class="col-md-2 d-flex align-items-center"><p>${p.id}: ${p.name}</p></div>
+			<div class="col-md-2 d-flex align-items-center"><p>${p.id}:<a href="displayProduct.do?pid=${p.id}"> ${p.name}</a></p></div>
 			
 			<div class="col-md-6 d-flex align-items-center"><p>${p.description}</p></div>
 			
