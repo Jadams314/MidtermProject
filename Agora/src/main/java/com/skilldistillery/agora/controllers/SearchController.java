@@ -58,7 +58,7 @@ public class SearchController {
 
 		if (user != null) {
 			session.setAttribute("user", user);
-			return "views/productList";
+			return "views/KWproductList";
 		} else {
 			return "index";
 		}
