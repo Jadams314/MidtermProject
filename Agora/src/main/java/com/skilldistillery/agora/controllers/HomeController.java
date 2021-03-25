@@ -13,6 +13,7 @@ import com.skilldistillery.agora.dao.InventoryDAO;
 import com.skilldistillery.agora.dao.SearchDao;
 import com.skilldistillery.agora.dao.UserDAO;
 import com.skilldistillery.agora.entities.Address;
+import com.skilldistillery.agora.entities.Inventory;
 import com.skilldistillery.agora.entities.Product;
 import com.skilldistillery.agora.entities.User;
 
@@ -33,7 +34,7 @@ public class HomeController {
 			//TODO: is this necessary? 
 			session.setAttribute("user", user);
 			model.addAttribute("firstName", user.getFirstName());
-			List<Object[]> inventory = dao.getAllInventory();
+			List<Inventory> inventory = dao.getAllInventoryAsList();
 			model.addAttribute("inventory", inventory);
 			List<Product> products = search.findAll();
 			model.addAttribute("products", products);
