@@ -91,9 +91,7 @@ public class CartDAOImpl implements CartDAO {
 //		System.out.println("zipCode  "+zipCode);
 //		System.out.println("****************************************************");
 		
-		if(user.getFirstName().equals(firstName) &&
-		   user.getLastName().equals(lastName) &&
-		   user.getAddress().getZipCode().equals(zipCode) &&
+		if(
 		   (creditCard.length() == 16) && 
 		   ( m > 0 && m < 13) &&
 		   (y > yearNow)) {
@@ -103,6 +101,12 @@ public class CartDAOImpl implements CartDAO {
 			return false;
 		}
 		
+	}
+	
+	@Override
+	public void removeFromInventory(User user, Inventory item) {
+		item.setAvailable(false);
+		em.persist(item);
 	}
 
 }

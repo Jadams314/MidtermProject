@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<!--  -->
-
 <meta name="viewport"
 	content="width=device-width, initial-scale=1,
 	shrink-to-fit=no">
@@ -14,13 +14,9 @@
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/main.css" type="text/css">
-<title>Add Product</title>
-
-<!--  -->
+<title>Product By ID</title>
 </head>
 <body>
-	<!--  -->
-	<!-- <body> -->
 
 	<div class="container header text-center">
 
@@ -42,6 +38,7 @@
 
 		</div>
 	</div>
+
 	<div class="container center">
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
@@ -86,20 +83,34 @@
 		<div class="container-fluid bgimage text-center">
 
 			<div class="transbox center">
-				<!-- 	<div class="scrolley container-fluid">
- -->
-				<!--  -->
-				<h2>Add A Product</h2>
+				<div class="scrolley container-fluid">
 
-				<form action="registerproduct.do" method="POST">
-					<label for="name">Name:</label> <input type="text" name="name"
-						required> <br> <label for="description">Description:</label>
-					<input type="text" name="description" required> <br> <label
-						for="price">Price:</label> <input type="text" name="price"
-						required> <br> <label for="productImgUrl">Image
-						URL:</label> <input type="text" name="productImgUrl" required> <br>
-					<input type="submit" value="Add">
-				</form>
+					<h2>Search Results:</h2>
+					<table class="table">
+						<thead class="table">
+							<th>ID</th>
+							<th>Image</th>
+							<th>Name</th>
+							<th>Description</th>
+
+						</thead>
+						<tbody>
+							<c:forEach var="p" items="${keywordSearch}">
+								<tr>
+									<td>${p.id}</td>
+									<td><a href="displayProduct.do?pid=${p.id}"
+										style="width: 200px; height: 75px; border: 0px solid black;"><div
+												style="width: auto; height: auto;">
+												<img src="${p.productImgUrl}" width="50%" height="100%"
+													style="margin-left: 50px;">
+											</div></td>
+									<td><a href="displayProduct.do?pid=${p.id}">${p.name}</a></td>
+									<td>${p.description }</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>

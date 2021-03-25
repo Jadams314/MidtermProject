@@ -62,7 +62,7 @@ public class CartController {
 			for (Purchase purchase : list) {
 				if(purchase.getInventory().getId() == item.getId()) {
 					System.out.println("*************************** 2 OF THE SAME *********************************");
-					return "views/profile";
+					return "redirect:home.do";
 				}
 			}
 			
@@ -77,7 +77,7 @@ public class CartController {
 				items.add(purchase2.getInventory());
 			}
 			model.addAttribute("cart", items);
-			return "views/shoppingCart";
+			return "redirect:home.do";
 		} else {
 			return "index";
 		}
@@ -97,7 +97,7 @@ public class CartController {
 				items.add(purchase.getInventory());
 			}
 			model.addAttribute("cart", items);
-			return "views/shoppingCart";
+			return "redirect:viewCart.do";
 		}
 		return "index";
 	}
@@ -151,7 +151,7 @@ public class CartController {
 //			TODO if credit card good else 
 			boolean test = dao.checkCreditCardInfo(user, creditCard, year, month, firstName, lastName, zipCode );
 			if(test == false) {
-				return "views/receipt"; //TODO get logic for html in 
+				return "views/receipt"; //TODO remove from cart
 			}
 		ShoppingCart cart = dao.getShoppingCart(user);
 		List<Purchase> list = cart.getPurchases();
@@ -159,6 +159,13 @@ public class CartController {
 
 		for (Purchase purchase : list) {
 			items.add(purchase.getInventory());
+		}
+		
+		//trying to remove from cart
+		for (Inventory item : items) {
+			
+			dao.removeFromCart(user, item);
+			dao.removeFromInventory(user, item);;
 		}
 		model.addAttribute("cart", items);
 

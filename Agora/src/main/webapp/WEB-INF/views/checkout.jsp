@@ -134,10 +134,10 @@
       <label for="password">Credit Card #:</label>
       <input type="text" name="creditCard" required>
       <br>
-      <label for="email">Exp Mo:</label>
+      <label for="expMo">Exp Mo:</label>
       <input type="text" name="month" required>
       <br>
-      <label for="street">Exp Yr:</label>
+      <label for="expYr">Exp Yr (yyyy):</label>
       <input type="text" name="year" required>
 	  <input type="hidden" name="total" value="${totalCost}">
 	  <input type="hidden" name="paidfor" value="${paidfor}">

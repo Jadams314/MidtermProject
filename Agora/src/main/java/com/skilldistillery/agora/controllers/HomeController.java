@@ -90,9 +90,10 @@ public class HomeController {
 			"street", "city", "state", "zipCode" })
 	public String registerAccount(User user, Address address, HttpSession session) {
 		// User user = null;
+		session.setAttribute("user", user);
 		System.out.println("***********************" + user);
 		if (session.getAttribute("user") != null) {
-			return "views/profile";
+			return "redirect:home.do";
 		} else {
 			user = userDao.registerAccount(user, address);
 			if (user == null) {
@@ -100,7 +101,7 @@ public class HomeController {
 				return "views/register";
 			}
 
-			return "views/profile";
+			return "redirect:home.do";
 		}
 
 	}
