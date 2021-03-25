@@ -30,12 +30,13 @@ public class HomeController {
 	public String home(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("user");
 		if (user!=null) {
+			//TODO: is this necessary? 
 			session.setAttribute("user", user);
 			model.addAttribute("firstName", user.getFirstName());
 			List<Object[]> inventory = dao.getAllInventory();
 			model.addAttribute("inventory", inventory);
 			List<Product> products = search.findAll();
-			model.addAttribute("displayAll", products);
+			model.addAttribute("products", products);
 			return "views/profile";			
 		}
 		
