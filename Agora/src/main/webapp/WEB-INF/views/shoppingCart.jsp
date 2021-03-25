@@ -82,21 +82,26 @@
 		<div class="container-fluid bgimage text-center">
 
 			<div class="transbox center">
-				<!-- 	<div class="scrolley container-fluid">
- -->
-				<h1>Shopping Cart</h1>
-				<a href="home.do">Home</a>
+				<div class="scrolley container-fluid">
 
-				<c:forEach var="i" items="${cart}">
-					<p>${i.id}:
-						${i.name}<br>${i.description}
-					<form action="removeFromCart.do" method="GET">
-						<input type="hidden" name="id" value="${i.id}">
-						<button class="btn" type="submit">Remove from Cart</button>
-					</form>
-					</p>
-				</c:forEach>
+					<h1>Shopping Cart</h1>
 
+					<c:forEach var="i" items="${cart}">
+						<div class="row container smaller">
+							<div class="col-md-2 d-flex align-items-center">
+								<p>${i.id}:${i.name}</p>
+							</div>
+							<div class="col-md-8 d-flex align-items-center">
+								<p>${i.description}</p>
+							</div>
+							<form action="removeFromCart.do" method="GET">
+								<input type="hidden" name="id" value="${i.id}">
+								<button class="btn" type="submit">Remove from Cart</button>
+							</form>
+					</c:forEach>
+
+
+				</div>
 				<form action="checkout.do" method="GET">
 					<input type="hidden" name="id" value="${i.id}">
 					<button class="btn" type="submit">checkout</button>
@@ -104,6 +109,7 @@
 			</div>
 		</div>
 	</div>
+
 
 
 
