@@ -1,12 +1,12 @@
 .bgimage { 
-	background: url(resources/images/agora.jpg);
+	background: url(../resources/images/agora.jpg);
 	background-position: center;
   	background-repeat: no-repeat;
   	background-size: cover;
   	max-height: 650px;
 }
 .background2 { 
-	background: url(resources/images/agora.jpg);
+	background: url(../resources/images/agora.jpg);
 	background-position: center;
   	background-repeat: no-repeat;
   	background-size: cover;
