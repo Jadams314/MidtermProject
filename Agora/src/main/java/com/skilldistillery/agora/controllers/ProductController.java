@@ -93,7 +93,7 @@ public class ProductController {
 		if (user != null) {
 			session.setAttribute("user", user);
 			//TODO set up the return page
-			return "views/profile";
+			 return "redirect:home.do";
 		} else {
 			return "index";
 		}
