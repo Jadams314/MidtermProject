@@ -93,9 +93,9 @@ public class HomeController {
 		session.setAttribute("user", user);
 		System.out.println("***********************" + user);
 		if (session.getAttribute("user") != null) {
+			user = userDao.registerAccount(user, address);
 			return "redirect:home.do";
 		} else {
-			user = userDao.registerAccount(user, address);
 			if (user == null) {
 				System.out.println("****************** Failed to insert new user");
 				return "views/register";
