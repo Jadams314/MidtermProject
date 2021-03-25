@@ -85,7 +85,7 @@
 <div class="transbox center margt15">
 <div class="scrolley container-fluid">
 
-	<h2>Seller Inventory</h2>
+	<h2>Your Products</h2>
 	
 	
 	
@@ -126,7 +126,7 @@
 <div class="transbox center margt1515">
 <div class="scrolley container-fluid">
 
-	<h2>All Inventory</h2>
+	<h2>All Agora Inventory</h2>
 	
 	
 	<c:forEach var="i" items="${inventory}">
