@@ -88,21 +88,35 @@
 	<h2>Seller Inventory</h2>
 	
 	
-	<c:forEach var="i" items="${inventory}">
+	
+	
+	<c:forEach var="p" items="${products}">
+	<c:choose>
+	<c:when test="${user.id == p.seller.id}">
 	
 		<div class="row container smaller">	
-			<div class="col-md-2 d-flex align-items-center"><p>${i.id}: ${i.name}</p></div>
-			<div class="col-md-8 d-flex align-items-center"><p>${i.description}</p></div>
-			<div class="col-md-2 d-flex align-items-center">
-
-				<form action=addToCart.do method="GET">
-					<input type="hidden" name="id" value="${i.id}">
-					<button class="btn" type="submit">Add To Cart</button>
+			<div class="col-md-2 d-flex align-items-center"><p>${p.id}: ${p.name}</p></div>
+			
+			<div class="col-md-7 d-flex align-items-center"><p>${p.description}</p></div>
+			
+			<div class="col-md-1 d-flex align-items-center">
+				<form action="addProductInventory.do" method="POST">
+				<input type="hidden" name="id" value="${p.id}">
+				<button class="btn" type="submit">List</button>
 				</form>
-
+			</div>	
+				
+			<div class="col-md-2 d-flex align-items-center">
+				<form action="addProductInventory.do" method="POST">
+				<input type="hidden" name="id" value="${p.id}">
+				<button class="btn" type="submit">[remove]</button>
+				</form>
 			</div>		
+			
 		</div>
 		
+	</c:when>
+	</c:choose>	
 	</c:forEach>	
 	
 	</div>
@@ -112,7 +126,7 @@
 <div class="transbox center margt1515">
 <div class="scrolley container-fluid">
 
-	<h2>Available Inventory</h2>
+	<h2>All Inventory</h2>
 	
 	
 	<c:forEach var="i" items="${inventory}">
