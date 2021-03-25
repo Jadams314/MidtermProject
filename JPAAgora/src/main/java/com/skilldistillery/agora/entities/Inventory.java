@@ -35,14 +35,13 @@ public class Inventory {
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;
-	
-	@OneToMany(mappedBy="inventory")
+
+	@OneToMany(mappedBy = "inventory")
 	private List<Purchase> purchase;
 	
-
 	/*
 	 * ***** METHODS ******
-	 */	
+	 */
 
 	public Inventory() {
 	}
@@ -55,7 +54,6 @@ public class Inventory {
 	public void setPurchase(List<Purchase> purchase) {
 		this.purchase = purchase;
 	}
-	
 
 	public Product getProduct() {
 		return product;
