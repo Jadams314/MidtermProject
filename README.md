@@ -2,7 +2,7 @@
 ## Midterm Agile Team Project for Skill Distillery
  <!-- <img src="" alt="" /> -->
 
-<img src="https://live.staticflickr.com/65535/49536280217_43f5ebc708.jpg" width="500" height="334" alt="Stoa of Attalos, Agora of Athens"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+<img src="https://live.staticflickr.com/65535/49536280217_43f5ebc708.jpg" width="500" height="334" alt="Stoa of Attalos, Agora of Athens"></a>
 
 
 ### Description
