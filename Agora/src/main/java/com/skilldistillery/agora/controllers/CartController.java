@@ -142,12 +142,17 @@ public class CartController {
 		
 	}
 	@RequestMapping(path = "payment.do")
-	public String payment(Model model, HttpSession session, double total, int count) {
+	public String payment(Model model, HttpSession session, double total, int count, 
+			String creditCard, String month, String year, String firstName, 
+			String lastName, String zipCode) {
 		User user = (User) session.getAttribute("user");
-//		List<Inventory> paid = new ArrayList<>(paidfor);
-//		ShoppingCart cart = dao.getShoppingCart(user);
-//		cart.getPurchases();
+
 		if(user != null) {
+//			TODO if credit card good else 
+			boolean test = dao.checkCreditCardInfo(user, creditCard, year, month, firstName, lastName, zipCode );
+			if(test == false) {
+				return "views/receipt"; //TODO get logic for html in 
+			}
 		ShoppingCart cart = dao.getShoppingCart(user);
 		List<Purchase> list = cart.getPurchases();
 		List<Inventory> items = new ArrayList<>();
@@ -156,12 +161,11 @@ public class CartController {
 			items.add(purchase.getInventory());
 		}
 		model.addAttribute("cart", items);
-//		items.get(0).getProduct().getProductImgUrl()
-//			model.addAttribute("paidfor", cart);
-			model.addAttribute("total", total);
-			model.addAttribute("count", count);
+
+		model.addAttribute("total", total);
+		model.addAttribute("count", count);
 		
-			return "views/receipt";
+		return "views/receipt";
 	
 		}
 		else {return "index";}

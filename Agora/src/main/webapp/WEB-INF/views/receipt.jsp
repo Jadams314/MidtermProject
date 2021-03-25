@@ -9,6 +9,20 @@
 </head>
 <body>
 <a href = "home.do">Home</a>
+
+<c:choose>
+	
+	<c:when test="${empty cart}">
+		<h3>The info you entered was incorrect, please return to cart and try again.</h3>
+		<br>
+		<h2>Back to Shopping cart</h2>
+		<form action="viewCart.do" method="GET">
+      		<input type="submit" value="SHOPPING CART">
+    	</form>
+    
+	</c:when>
+	
+	<c:otherwise>
 <h1>HERE IS YOUR RECEIPT:</h1>
 <h3>You paid $ ${total} and purchased ${count} items.</h3>
 <h5>Thank you for shopping we hope you choose Agora for all your future purchases.</h5>
@@ -37,5 +51,9 @@
 	</tfoot>
 
 </table>
+
+		</c:otherwise>
+		
+</c:choose>
 </body>
 </html>
