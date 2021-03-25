@@ -9,12 +9,12 @@
 <title>Product By ID</title>
 </head>
 <body>
-	<!<%-- --Products By ID-->
+	<!-- Products By ID-->
 	<h1>Products:</h1>
 	<div>
-		<h5>${product.name}(${product.id})</h5>
+		<h5>${product.name}${product.id}</h5>
 		<p>${product.description}</p>
-	</div> --%>
+	</div>
 
 	<!--Products By ID-->
 
