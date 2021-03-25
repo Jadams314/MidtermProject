@@ -96,13 +96,16 @@ div.row.container.smaller {
 	border-right: none;
 	padding: 0px;
 }
+div.col-md-1 {
+	padding: 0px;
+}
 
 div.col-md-2 p {
 	padding: 0px;
 	text-align: left;
 }
 
-div.col-md-2 p, div.col-md-8 p {
+div.col-md-2 p, div.col-md-8 p, div.col-md-7 p {
 	margin-top: 4px;
 	margin-bottom: 4px;
 }
