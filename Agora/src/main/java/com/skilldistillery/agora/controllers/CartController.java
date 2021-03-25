@@ -62,7 +62,7 @@ public class CartController {
 			for (Purchase purchase : list) {
 				if(purchase.getInventory().getId() == item.getId()) {
 					System.out.println("*************************** 2 OF THE SAME *********************************");
-					return "views/profile";
+					return "redirect:home.do";
 				}
 			}
 			
@@ -77,7 +77,7 @@ public class CartController {
 				items.add(purchase2.getInventory());
 			}
 			model.addAttribute("cart", items);
-			return "views/shoppingCart";
+			return "redirect:home.do";
 		} else {
 			return "index";
 		}
@@ -97,7 +97,7 @@ public class CartController {
 				items.add(purchase.getInventory());
 			}
 			model.addAttribute("cart", items);
-			return "views/shoppingCart";
+			return "redirect:viewCart.do";
 		}
 		return "index";
 	}

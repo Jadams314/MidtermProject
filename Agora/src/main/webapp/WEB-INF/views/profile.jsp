@@ -109,7 +109,7 @@
 			<div class="col-md-2 d-flex align-items-center">
 				<form action="notAvail.do" method="POST">
 				<input type="hidden" name="id" value="${p.id}">
-				<button class="btn" type="submit">[remove]</button>
+				<button class="btn" type="submit">Not Available</button>
 				</form>
 			</div>		
 			
