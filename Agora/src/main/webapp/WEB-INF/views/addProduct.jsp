@@ -27,7 +27,7 @@
 		<div class="row">
 
 			<div class="column">
-				<a href="home.do"><img src="/resources/images/home.png"
+				<a href="home.do"><img src="resources/images/home.png"
 					alt="home icon" /></a>
 			</div>
 
@@ -36,7 +36,7 @@
 			</div>
 
 			<div class="column">
-				<a href="viewCart.do"><img src="/resources/images/carticon.png"
+				<a href="viewCart.do"><img src="resources/images/carticon.png"
 					alt="cart icon" /></a>
 			</div>
 
