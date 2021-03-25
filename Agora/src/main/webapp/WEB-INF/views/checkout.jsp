@@ -51,13 +51,13 @@
       <label for="zipCode">Zip Code:</label>
       <input type="text" name="zipCode" required>
       <br>
-      <label for="password">Credit Card Number:</label>
+      <label for="creditCard">Credit Card Number:</label>
       <input type="text" name="creditCard" required>
       <br>
-      <label for="email">Exp Mo:</label>
+      <label for="expMo">Exp Mo:</label>
       <input type="text" name="month" required>
       <br>
-      <label for="street">Exp Yr:</label>
+      <label for="expYr">Exp Yr (yyyy):</label>
       <input type="text" name="year" required>
 	  <input type="hidden" name="total" value="${totalCost}">
 	  <input type="hidden" name="paidfor" value="${paidfor}">

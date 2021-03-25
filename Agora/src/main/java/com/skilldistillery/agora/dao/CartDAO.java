@@ -17,5 +17,7 @@ public interface CartDAO {
 	boolean checkCreditCardInfo(User user, String creditCard, String year, 
 			String month, String firstName, String lastName, String zipCode) ;
 
+	void removeFromInventory(User user, Inventory item);
+
 
 }
