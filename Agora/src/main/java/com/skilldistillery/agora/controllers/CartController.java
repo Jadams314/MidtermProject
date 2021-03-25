@@ -151,7 +151,7 @@ public class CartController {
 //			TODO if credit card good else 
 			boolean test = dao.checkCreditCardInfo(user, creditCard, year, month, firstName, lastName, zipCode );
 			if(test == false) {
-				return "views/receipt"; //TODO get logic for html in 
+				return "views/receipt"; //TODO remove from cart
 			}
 		ShoppingCart cart = dao.getShoppingCart(user);
 		List<Purchase> list = cart.getPurchases();
@@ -159,6 +159,13 @@ public class CartController {
 
 		for (Purchase purchase : list) {
 			items.add(purchase.getInventory());
+		}
+		
+		//trying to remove from cart
+		for (Inventory item : items) {
+			
+			dao.removeFromCart(user, item);
+			dao.removeFromInventory(user, item);;
 		}
 		model.addAttribute("cart", items);
 
