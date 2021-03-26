@@ -105,6 +105,16 @@ div.col-md-2 p {
 	text-align: left;
 }
 
+.deleteborder {
+	border-style: none;
+	border: none;
+}
+
+div.row.container.smaller input {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
 div.col-md-2 a {
 	color: #0d2c9e!important;
 }
@@ -208,10 +218,6 @@ div.card-body {
 	max-width: max-content;
 	min-width: min-content;
 }
-div.row.container.smaller input {
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
 
 .min100perc {
 	min-width: 100%;
@@ -223,4 +229,8 @@ h5{
 
 hr {
 	color: black;
+}
+div.col-md-8.d-flex.align-items-center input {
+	margin-top: 0px;
+	margin-bottom: 0px;
 }

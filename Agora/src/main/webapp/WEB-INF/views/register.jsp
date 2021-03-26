@@ -76,33 +76,100 @@
 				</form>
 			</div>
 		</nav>
+		<!--**********************************************************-->
 
-		<div class="container-fluid bgimage text-center">
+		
+				<div class="container-fluid bgimage text-center">
 
 			<div class="transbox center">
-				<div class="scrolley container-fluid">
 
-					<h1>Register an account</h1>
-					<form action="registerAccount.do" method="POST">
-						<label for="firstName">First Name:</label> <input type="text"
-							name="firstName" required> <br> <label
-							for="lastName">Last Name:</label> <input type="text"
-							name="lastName" required> <br> <label for="username">Username:</label>
-						<input type="text" name="username" required> <br> <label
-							for="password">Password:</label> <input type="text"
-							name="password" required> <br> <label for="email">Email:</label>
-						<input type="text" name="email" required> <br> <label
-							for="street">Street:</label> <input type="text" name="street"
-							required> <br> <label for="city">City:</label> <input
-							type="text" name="city" required> <br> <label
-							for="state">State:</label> <input type="text" name="state"
-							required> <br> <label for="zipCode">Zip
-							Code:</label> <input type="text" name="zipCode" required> <br>
-						<input type="submit" value="Register">
-					</form>
+				<h2>Register an Account</h2>
+				
+				<form action="registerAccount.do" method="POST">
+				
+				<div class="row container smaller deleteborder">				
+					<div class="col-md-4 d-flex align-items-center">				
+						<label for="firstName">First Name:</label>
+					</div>					
+					<div class="col-md-8 d-flex align-items-center">				
+						<input type="text" name="firstName" required>
+					</div>
 				</div>
+				
+				<div class="row container smaller deleteborder">				
+					<div class="col-md-4 d-flex align-items-center">				
+						<label for="lastName">Last Name:</label>
+					</div>					
+					<div class="col-md-8 d-flex align-items-center">				
+						<input type="text" name="lastName" required>
+					</div>
+				</div>
+				<div class="row container smaller deleteborder">				
+					<div class="col-md-4 d-flex align-items-center">				
+						<label for="username">Username:</label>
+					</div>					
+					<div class="col-md-8 d-flex align-items-center">				
+						<input type="text" name="username" required>
+					</div>
+				</div>				
+				<div class="row container smaller deleteborder">				
+					<div class="col-md-4 d-flex align-items-center">		
+						<label for="password">Password:</label>					
+					</div>				
+					<div class="col-md-8 d-flex align-items-center">				
+						<input type="text" name="password" required>						
+					</div>
+				</div>				
+				<div class="row container smaller deleteborder">				
+					<div class="col-md-4 d-flex align-items-center">		
+						<label for="email">Email:</label>					
+					</div>				
+					<div class="col-md-8 d-flex align-items-center">				
+						<input type="text" name="email" required>							
+					</div>
+				</div>
+				<div class="row container smaller deleteborder">				
+					<div class="col-md-4 d-flex align-items-center">		
+						<label for="street">Street:</label>					
+					</div>				
+					<div class="col-md-8 d-flex align-items-center">				
+						<input type="text" name="street" required>							
+					</div>
+				</div>				
+				<div class="row container smaller deleteborder">				
+					<div class="col-md-4 d-flex align-items-center">		
+						<label for="city">City:</label>					
+					</div>				
+					<div class="col-md-8 d-flex align-items-center">				
+						<input type="text" name="city" required>							
+					</div>
+				</div>
+				<div class="row container smaller deleteborder">				
+					<div class="col-md-4 d-flex align-items-center">		
+						<label for="state">State:</label>				
+					</div>				
+					<div class="col-md-8 d-flex align-items-center">				
+						<input type="text" name="state"	required>							
+					</div>
+				</div>
+				<div class="row container smaller deleteborder">				
+					<div class="col-md-4 d-flex align-items-center">		
+						<label for="zipCode">Zip Code:</label>				
+					</div>				
+					<div class="col-md-8 d-flex align-items-center">				
+						<input type="text" name="zipCode" required>							
+					</div>
+				</div>
+				
+				
+				<div class="row container smaller deleteborder">				
+					<button type="submit" class="center" type="submit" value="Register">Register</button>				
+				</div>
+
+				</form>
 			</div>
 		</div>
+
 	</div>
 
 
