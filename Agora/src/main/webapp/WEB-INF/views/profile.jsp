@@ -78,8 +78,10 @@
 </nav>
 
 <div class="container-fluid bgimage text-center">
+<div class="col-md-12 align-items-center">
 <div class="transbox center margt15">
 <h3>Welcome Back, ${firstName}!</h3>
+</div>
 </div>
 
 <div class="transbox center margt15">
@@ -112,10 +114,16 @@
 			
 		</div>
 		
+		
 	</c:when>
 	</c:choose>	
 	</c:forEach>	
 	
+		<div class ="row container smaller">
+		<h3 class="center">
+		*** end of products list ***
+		</h3>
+		</div>
 	</div>
 
 
@@ -133,10 +141,15 @@
 		
 		<div class="row container smaller">	
 			<div class="col-md-2 d-flex align-items-center"><p>${i.id}: ${i.name}</p></div>
-			<div class="col-md-8 d-flex align-items-center"><p>${i.description}</p></div>
 			<div class="col-md-2 d-flex align-items-center">
+								<img class ="center" src="${i.product.productImgUrl}">
+							</div>
+							<div class="col-md-5 d-flex align-items-center">
+								<p>${i.description}</p>
+							</div>
+			<div class="col-md-3 d-flex align-items-center">
 
-				<form action=addToCart.do method="GET">
+				<form class = "center" action=addToCart.do method="GET">
 					<input type="hidden" name="id" value="${i.id}">
 					<button class="btn" type="submit">Add To Cart</button>
 				</form>
