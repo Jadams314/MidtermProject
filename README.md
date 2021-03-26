@@ -9,7 +9,7 @@
 
 * noun
 (in ancient Greece) a public open space used for assemblies and markets.
-* Agora is a space for
+* Agora is a space for people to gather and buy/sell new or used goods.
 ---
 
 ## Technologies Used
