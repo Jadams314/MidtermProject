@@ -27,24 +27,33 @@ public class HomeController {
 	@Autowired
 	private SearchDao search;
 
+	/*
+	 * Main profile controller, dao's populate the the Product table and Inventory
+	 * Table seen on the profile page. When traversing from page to page most links
+	 * to go back will come back to this controller
+	 */
+
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("user");
-		if (user!=null) {
-			//TODO: is this necessary? 
-			session.setAttribute("user", user);
+		if (user != null) {
 			model.addAttribute("firstName", user.getFirstName());
 			List<Inventory> inventory = dao.getAllInventoryAsList();
 			model.addAttribute("inventory", inventory);
 			List<Product> products = search.findAll();
 			model.addAttribute("products", products);
-			return "views/profile";			
+			return "views/profile";
 		}
-		
+
 		return "index";
 	}
-	
-	@RequestMapping(path =  "logout.do" )
+
+	/*
+	 * The path says it all. When a user wants to log out this controller will
+	 * remove the session and send them back to the login page.
+	 */
+
+	@RequestMapping(path = "logout.do")
 	public String logout(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("user");
 		if (user != null) {
@@ -54,13 +63,16 @@ public class HomeController {
 		return "index";
 	}
 
-	
-	// Simple nav controller to take the user to the registration form
+	// Nav controller to send user to user from the login to the register jsp
 	@RequestMapping(path = "register.do")
 	public String registerPage(Model model) {
 		return "views/register";
 	}
 
+	/*
+	 * The login controller checks with the dao to insure the user name and password 
+	 * are identical to what we have stored in our user table on the db.
+	 */
 	@RequestMapping(path = "login.do", params = { "username", "password" })
 	public String login(User user, HttpSession session) {
 
@@ -82,28 +94,21 @@ public class HomeController {
 	 * here. This will create the user and address objects and persist them into the
 	 * agoradb. Once the user object is created and returns not null the user will
 	 * be sent to the profile.jsp
-	 * 
-	 * TODO create a pop up for a good register
 	 */
 
 	@RequestMapping(path = "registerAccount.do", params = { "firstName", "lastName", "username", "password", "email",
 			"street", "city", "state", "zipCode" })
 	public String registerAccount(User user, Address address, HttpSession session) {
-		// User user = null;
 		session.setAttribute("user", user);
-		System.out.println("***********************" + user);
 		if (session.getAttribute("user") != null) {
 			user = userDao.registerAccount(user, address);
 			return "redirect:home.do";
 		} else {
 			if (user == null) {
-				System.out.println("****************** Failed to insert new user");
 				return "views/register";
 			}
-
 			return "redirect:home.do";
 		}
-
 	}
 
 }
