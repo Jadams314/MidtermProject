@@ -94,18 +94,18 @@
 							<div class="col-md-8 d-flex align-items-center">
 								<p>${i.description}</p>
 							</div>
-							<form action="removeFromCart.do" method="GET">
+							<form class="center" action="removeFromCart.do" method="GET">
 								<input type="hidden" name="id" value="${i.id}">
 								<button class="btn" type="submit">Remove from Cart</button>
 							</form>
+						</div>
 					</c:forEach>
-
-
-				</div>
+				<br>
 				<form action="checkout.do" method="GET">
 					<input type="hidden" name="id" value="${i.id}">
 					<button class="btn" type="submit">checkout</button>
 				</form>
+				</div>
 			</div>
 		</div>
 	</div>
