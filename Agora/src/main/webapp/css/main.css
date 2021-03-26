@@ -220,3 +220,7 @@ div.row.container.smaller input {
 h5{
 	margin-top: 5px;
 }
+
+hr {
+	color: black;
+}
