@@ -102,11 +102,11 @@
 
 
 				</div>
+			</div>
 				<form action="checkout.do" method="GET">
 					<input type="hidden" name="id" value="${i.id}">
 					<button class="btn" type="submit">checkout</button>
 				</form>
-			</div>
 		</div>
 	</div>
 
