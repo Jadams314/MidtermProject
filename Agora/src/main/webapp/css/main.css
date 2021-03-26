@@ -115,6 +115,9 @@ div.col-md-2 a:hover {
 div.col-md-2 img {
 	max-width: 100px;
 	max-height: 100px;
+	border-radius: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 div.col-md-2 p, div.col-md-8 p, div.col-md-7 p {
@@ -137,7 +140,6 @@ h3.center,  button.navbar-toggler{
 	margin-right: auto;
 	margin-left: auto;
 }
-
 
 input {
 	min-width: 200px;
@@ -209,4 +211,12 @@ div.card-body {
 div.row.container.smaller input {
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.min100perc {
+	min-width: 100%;
+}
+
+h5{
+	margin-top: 5px;
 }
