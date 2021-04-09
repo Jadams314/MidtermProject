@@ -29,6 +29,7 @@
 ### How to run
 
 * In a browser type "http://18.220.191.64:8080/Agora" into the Address bar.
+* Login with Admin/admin to see full site.
 * Create and account using the sign up hyperlink
 * Browse all inventory or use the search bar to find a specific item/items
 * Sell items using the sell tab
